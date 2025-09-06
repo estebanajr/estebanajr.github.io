@@ -30,17 +30,17 @@ Algunos de vosotros me habéis contactado pidiéndome que subiera los archivos d
 Para el que lo quiera tomar en consideración, por aquí os dejo las especificaciones de mi sistema operativo:
 
 ```bash
-┌─[s4vitar@parrot]─[~]
+┌─[flippermen@parrot]─[~]
 └──╼ $uname -a
 Linux parrot 5.2.0-2parrot1-amd64 #1 SMP Debian 5.2.9-2parrot1 (2019-08-25) x86_64 GNU/Linux
-┌─[s4vitar@parrot]─[~]
+┌─[flippermen@parrot]─[~]
 └──╼ $lsb_release -a
 No LSB modules are available.
 Distributor ID:	Parrot
 Description:	Parrot GNU/Linux 4.7
 Release:	4.7
 Codename:	n/a
-┌─[s4vitar@parrot]─[~]
+┌─[flippermen@parrot]─[~]
 └──╼ $
 ```
 
@@ -52,8 +52,8 @@ Este sería el archivo de configuración situado bajo `~/.config/bspwm`:
 #! /bin/sh
 
 sxhkd &
-compton --config /home/s4vitar/.config/compton/compton.conf &
-feh --bg-fill /home/s4vitar/Desktop/s4vitar/Images/Helado.jpg &
+compton --config /home/flippermen/.config/compton/compton.conf &
+feh --bg-fill /home/flippermen/Desktop/flippermen/Images/Helado.jpg &
 wmname LG3D &
 ~/.config/polybar/launch.sh &
 
@@ -255,7 +255,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 alt + super + {Left,Down,Up,Right}
-	/home/s4vitar/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	/home/flippermen/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
 
 # ---------------------------------------------
@@ -323,7 +323,7 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source /home/s4vitar/powerlevel10k/powerlevel10k.zsh-theme
+source /home/flippermen/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

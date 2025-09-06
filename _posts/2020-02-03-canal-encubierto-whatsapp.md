@@ -27,7 +27,7 @@ Para poder poner en práctica esta utilidad, en mi caso cuento con un servidor w
 
 La URL que estaré utilizando para el canal encubierto será la siguiente:
 
-* [http://s4vitar.herokuapp.com](http://s4vitar.herokuapp.com)
+* [http://flippermen.herokuapp.com](http://flippermen.herokuapp.com)
 
 <p align="center">
 <img src="/assets/images/whatsapp-canal-encubierto/page-herokuapp.jpg">
@@ -38,7 +38,7 @@ Entonces bien, ¿cómo hacemos?, pues fijaros. Una de las utilidades de heroku e
 Posteriormente, deberéis aplicar el siguiente comando desde consola para iniciar sesión con vuestra cuenta:
 
 ```go
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #heroku login
 heroku: Press any key to open up the browser to login or q to exit:
 Opening browser to https://cli-auth.heroku.com/auth/cli/browser/35e6XXXX-XXXX-XXXX-87d0-bf7ff75XXXXX
@@ -48,40 +48,40 @@ heroku: Waiting for login... ⣟
 Se os abrirá el navegador (en caso de que no se os abra, simplemente tenéis que acceder a la URL que se os proporciona). Una vez logueados, deberíais ver lo siguiente:
 
 ```go
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #heroku login
 heroku: Press any key to open up the browser to login or q to exit: 
 Opening browser to https://cli-auth.heroku.com/auth/cli/browser/35e6XXXX-XXXX-XXXX-87d0-bf7ff75XXXXX
 Logging in... done
-Logged in as s4vitarx@gmail.com
+Logged in as flippermenx@gmail.com
 ```
 
 Os descargáis el repositorio correspondiente a la página web que se dispone de forma pública:
 
 ```go
 ┌─[root@parrot]─[/opt]
-└──╼ #heroku git:clone -a s4vitar
-Clonando en 's4vitar'...
+└──╼ #heroku git:clone -a flippermen
+Clonando en 'flippermen'...
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (6/6), done.
 remote: Total 10 (delta 0), reused 0 (delta 0)
 Desempaquetando objetos: 100% (10/10), listo.
 ┌─[root@parrot]─[/opt]
-└──╼ #cd s4vitar
-┌─[root@parrot]─[/opt/s4vitar]
+└──╼ #cd flippermen
+┌─[root@parrot]─[/opt/flippermen]
 └──╼ #ls
 index.html
-┌─[✗]─[root@parrot]─[/opt/s4vitar]
+┌─[✗]─[root@parrot]─[/opt/flippermen]
 └──╼ #cat index.html 
 Test
-┌─[root@parrot]─[/opt/s4vitar]
+┌─[root@parrot]─[/opt/flippermen]
 └──╼ #
 ```
 
 Y una vez situados dentro del directorio de vuestro proyecto, aplicáis el siguiente comando:
 
 ```go
-┌─[root@parrot]─[/opt/s4vitar]
+┌─[root@parrot]─[/opt/flippermen]
 └──╼ #heroku logs -t
 2020-02-03T11:15:21.183720+00:00 heroku[web.1]: Unidling
 2020-02-03T11:15:21.187564+00:00 heroku[web.1]: State changed from down to starting
@@ -96,16 +96,16 @@ Y una vez situados dentro del directorio de vuestro proyecto, aplicáis el sigui
 2020-02-03T11:15:28.234835+00:00 app[web.1]: 10.111.222.196 - - [03/Feb/2020:11:15:28 +0000] "GET / HTTP/1.1" 302 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
 2020-02-03T11:15:28.278228+00:00 app[web.1]: 10.41.198.134 - - [03/Feb/2020:11:15:28 +0000] "GET /robots.txt HTTP/1.1" 404 208 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
 2020-02-03T11:15:28.375383+00:00 app[web.1]: 10.111.222.196 - - [03/Feb/2020:11:15:28 +0000] "GET /index.html HTTP/1.1" 200 5 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
-2020-02-03T11:15:28.234477+00:00 heroku[router]: at=info method=GET path="/" host=s4vitar.herokuapp.com request_id=1cc5b49f-eaba-4f5d-828c-4f1ac3dcddcc fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=3ms status=302 bytes=176 protocol=http
-2020-02-03T11:15:28.279973+00:00 heroku[router]: at=info method=GET path="/robots.txt" host=s4vitar.herokuapp.com request_id=750ddd73-a1f7-4616-9827-119e5b3f280e fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=404 bytes=372 protocol=http
-2020-02-03T11:15:28.375122+00:00 heroku[router]: at=info method=GET path="/index.html" host=s4vitar.herokuapp.com request_id=e9db6b57-a2dc-406f-9d09-2549f65d429a fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=200 bytes=233 protocol=http
-2020-02-03T11:15:28.714967+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=s4vitar.herokuapp.com request_id=4bfb04e1-3b32-46a7-b0a0-3208e321596e fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=404 bytes=373 protocol=http
-2020-02-03T11:15:28.715303+00:00 app[web.1]: 10.111.222.196 - - [03/Feb/2020:11:15:28 +0000] "GET /favicon.ico HTTP/1.1" 404 209 "http://s4vitar.herokuapp.com/index.html" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+2020-02-03T11:15:28.234477+00:00 heroku[router]: at=info method=GET path="/" host=flippermen.herokuapp.com request_id=1cc5b49f-eaba-4f5d-828c-4f1ac3dcddcc fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=3ms status=302 bytes=176 protocol=http
+2020-02-03T11:15:28.279973+00:00 heroku[router]: at=info method=GET path="/robots.txt" host=flippermen.herokuapp.com request_id=750ddd73-a1f7-4616-9827-119e5b3f280e fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=404 bytes=372 protocol=http
+2020-02-03T11:15:28.375122+00:00 heroku[router]: at=info method=GET path="/index.html" host=flippermen.herokuapp.com request_id=e9db6b57-a2dc-406f-9d09-2549f65d429a fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=200 bytes=233 protocol=http
+2020-02-03T11:15:28.714967+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=flippermen.herokuapp.com request_id=4bfb04e1-3b32-46a7-b0a0-3208e321596e fwd="XX.XXX.XXX.160" dyno=web.1 connect=1ms service=2ms status=404 bytes=373 protocol=http
+2020-02-03T11:15:28.715303+00:00 app[web.1]: 10.111.222.196 - - [03/Feb/2020:11:15:28 +0000] "GET /favicon.ico HTTP/1.1" 404 209 "http://flippermen.herokuapp.com/index.html" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
 ```
 
 Ya en este punto, podéis comenzar con la conversación encubierta. 
 
-Lo único que tenéis que hacer es lo siguiente: Abrid una conversación en WhatsApp con alguno de vuestros contactos, haced como si fuerais a enviar un mensaje a vuestro compañero escribiendo la dirección URL (en este caso la mía como PoC) [http://s4vitar.herokuapp.com/](http://s4vitar.herokuapp.com/) y posteriormente escribid vuestro mensaje pegado a la barra `/`, por ejemplo:
+Lo único que tenéis que hacer es lo siguiente: Abrid una conversación en WhatsApp con alguno de vuestros contactos, haced como si fuerais a enviar un mensaje a vuestro compañero escribiendo la dirección URL (en este caso la mía como PoC) [http://flippermen.herokuapp.com/](http://flippermen.herokuapp.com/) y posteriormente escribid vuestro mensaje pegado a la barra `/`, por ejemplo:
 
 <p align="center">
 <img src="/assets/images/whatsapp-canal-encubierto/whatsapp-victor.jpg">

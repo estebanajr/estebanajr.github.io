@@ -54,9 +54,9 @@ La misma pregunta que te estás haciendo es la que me hice yo en su momento, ¿q
 Bueno pues este churraco... es un base64 más grande que mi casa, y lo que más llama la atención es el tipo de archivo que representa una vez se decodifica desde consola:
 
 ```bash
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $cat file | base64 -d > content
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $file content 
 content: PNG image data, 640 x 480, 8-bit/color RGBA, non-interlaced
 ```
@@ -78,9 +78,9 @@ Efectivamente, una imagen, ¿y a qué corresponde esta imagen?, a la instantáne
 La pasamos a base64 desde consola:
 
 ```bash
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $cat smile-girl.jpeg | base64 -w 0 | xclip -sel clip
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $
 ```
 

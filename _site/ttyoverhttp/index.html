@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>ttyOverHTTP - Herramienta - s4vitar.io</title>
+<!-- begin _includes/seo.html --><title>ttyOverHTTP - Herramienta - flippermen.io</title>
 <meta name="description" content="Utilidad en Python para obtener una TTY totalmente interactiva mediante explotación web sin necesidad de entablarse una Reverse Shell.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="s4vitar.io">
+<meta property="og:site_name" content="flippermen.io">
 <meta property="og:title" content="ttyOverHTTP - Herramienta">
 <meta property="og:url" content="http://localhost:4000/ttyoverhttp/">
 
@@ -54,7 +54,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "S4vitar",
+      "name": "flippermen",
       "url": "http://localhost:4000",
       "sameAs": null
     }
@@ -69,7 +69,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="s4vitar.io Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="flippermen.io Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,14 +192,14 @@
       
 
       
-        <img src="/assets/images/avatar.png" alt="S4vitar" itemprop="image">
+        <img src="/assets/images/avatar.png" alt="flippermen" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">S4vitar</h3>
+      <h3 class="author__name" itemprop="name">flippermen</h3>
     
     
       <p class="author__bio" itemprop="description">
@@ -234,7 +234,7 @@
 
       
         <li>
-          <a href="https://twitter.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://twitter.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
           </a>
         </li>
@@ -246,7 +246,7 @@
 
       
         <li>
-          <a href="https://www.linkedin.com/in/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.linkedin.com/in/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
           </a>
         </li>
@@ -262,7 +262,7 @@
 
       
         <li>
-          <a href="https://github.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://github.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
           </a>
         </li>
@@ -285,7 +285,7 @@
       
         
           <li>
-            <a href="https://youtube.com/c/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="https://youtube.com/c/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
             </a>
           </li>
@@ -345,7 +345,7 @@
 <p>Podéis encontrar esta herramienta en el siguiente enlace:</p>
 
 <ul>
-  <li><a href="https://github.com/s4vitar/ttyoverhttp">https://github.com/s4vitar/ttyoverhttp</a></li>
+  <li><a href="https://github.com/flippermen/ttyoverhttp">https://github.com/flippermen/ttyoverhttp</a></li>
 </ul>
 
 <h2 id="qué-es-ttyoverhttp">¿Qué es ttyOverHTTP?</h2>
@@ -391,105 +391,105 @@
 
 <p>Veamos un ejemplo práctico de su uso. Por un lado desde terminal, haremos lo siguiente:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">mkfifo</span> <span class="n">input</span><span class="p">;</span> <span class="n">tail</span> <span class="o">-</span><span class="n">f</span> <span class="n">input</span> <span class="o">|</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="m">2</span><span class="o">&gt;&amp;</span><span class="m">1</span> <span class="o">&gt;</span> <span class="n">output</span>
 </code></pre></div></div>
 
 <p>Esto se quedará en escucha, por lo que posteriormente deberemos abrir una nueva consola aparte para hacer las pruebas. Ahora haremos lo siguiente:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">ls</span>
 <span class="n">input</span>  <span class="n">output</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"whoami"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span> 
-<span class="n">s4vitar</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="n">flippermen</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"pwd"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"cd .."</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"pwd"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span> 
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 </code></pre></div></div>
 
 <p>Si os fijáis, para cada comando proporcionado en <code class="language-plaintext highlighter-rouge">input</code>, se nos lista el resultado del comando aplicado a nivel de sistema en el fichero <code class="language-plaintext highlighter-rouge">output</code>.</p>
 
 <p>Ojo cuidado, esto sigue sin ser una TTY, sin embargo… podemos hacer lo siguiente:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"script /dev/null -c bash"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span> 
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
-<span class="err">└──╼</span> <span class="err">$┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">└──╼</span> <span class="err">$┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 </code></pre></div></div>
 
 <p>Fijaros cómo ahora se nos abre una consola aparte de la nuestra al leer el ficherito <code class="language-plaintext highlighter-rouge">output</code>. Tal vez lo veis mejor así:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span><span class="p">;</span> <span class="n">echo</span>
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 </code></pre></div></div>
 
 <p>Ahí está. La superior a la de abajo del todo es la gestionada desde los ficheros <code class="language-plaintext highlighter-rouge">input</code> y <code class="language-plaintext highlighter-rouge">output</code>. ¿Qué es lo mejor de todo?, lo siguiente:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"tty"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span><span class="p">;</span> <span class="n">echo</span>
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">tty</span>
 <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">pts</span><span class="o">/</span><span class="m">4</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 </code></pre></div></div>
 
 <p>Ya estamos en una TTY, y a partir de aquí es sencillo aprovechar al máximo las utilidades de consola:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"php --interactive"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="err">'$</span><span class="n">word</span> <span class="o">=</span> <span class="s">"Hola"</span><span class="p">;</span><span class="err">'</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="err">'</span><span class="n">echo</span> <span class="err">$</span><span class="n">word</span><span class="p">;</span><span class="err">'</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="err">'</span><span class="n">quit</span><span class="err">'</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="err">'</span><span class="n">whoami</span><span class="err">'</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span>
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">tty</span>
 <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">pts</span><span class="o">/</span><span class="m">4</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">php</span> <span class="o">--</span><span class="n">interactive</span>
 <span class="n">Interactive</span> <span class="n">mode</span> <span class="n">enabled</span>
 
@@ -497,31 +497,31 @@
 <span class="n">php</span> <span class="o">&gt;</span> <span class="n">echo</span> <span class="err">$</span><span class="n">word</span><span class="p">;</span>
 <span class="n">Hola</span>
 <span class="n">php</span> <span class="o">&gt;</span> <span class="n">quit</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">whoami</span>
-<span class="n">s4vitar</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="n">flippermen</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 </code></pre></div></div>
 
 <p>De igual manera, podemos efectuar migraciones de usuario o convertirnos en root proporcionando la contraseña:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"sudo su"</span> <span class="o">&gt;</span> <span class="n">input</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">echo</span> <span class="s">"************"</span> <span class="o">&gt;</span> <span class="n">input</span> <span class="err">#</span> <span class="n">Aquí</span> <span class="n">pondríais</span> <span class="n">vuestra</span> <span class="n">contraseña</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">cat</span> <span class="n">output</span> <span class="p">;</span> <span class="n">echo</span>
-<span class="n">s4vitar</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">s4vitar</span><span class="o">/</span><span class="n">Desktop</span>
+<span class="n">flippermen</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">flippermen</span><span class="o">/</span><span class="n">Desktop</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">tty</span>
 <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">pts</span><span class="o">/</span><span class="m">4</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">php</span> <span class="o">--</span><span class="n">interactive</span>
 <span class="n">Interactive</span> <span class="n">mode</span> <span class="n">enabled</span>
 
@@ -529,15 +529,15 @@
 <span class="n">php</span> <span class="o">&gt;</span> <span class="n">echo</span> <span class="err">$</span><span class="n">word</span><span class="p">;</span>
 <span class="n">Hola</span>
 <span class="n">php</span> <span class="o">&gt;</span> <span class="n">quit</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">whoami</span>
-<span class="n">s4vitar</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
+<span class="n">flippermen</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">sudo</span> <span class="n">su</span>
-<span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">password</span> <span class="k">for</span> <span class="n">s4vitar</span><span class="o">:</span> 
+<span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flippermen</span><span class="o">:</span> 
 <span class="err">┌─</span><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">#</span>
-<span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 </code></pre></div></div>
 
@@ -634,7 +634,7 @@
 
 <p>Entonces bien, imaginad que ya tenéis un archivo <code class="language-plaintext highlighter-rouge">cmd.php</code> alojado en el servidor víctima, pues mirad que sencillo:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">python3</span> <span class="n">ttyOverHTTP</span><span class="o">.</span><span class="n">py</span> 
 <span class="o">&gt;</span> <span class="n">whoami</span>
 <span class="n">www</span><span class="o">-</span><span class="n">data</span>
@@ -645,38 +645,38 @@
 <span class="o">/</span><span class="n">home</span>
 <span class="o">&gt;</span> <span class="n">ls</span> <span class="o">-</span><span class="n">l</span>
 <span class="n">total</span> <span class="m">0</span>
-<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="m">1</span> <span class="n">s4vitar</span> <span class="n">s4vitar</span> <span class="m">1156</span> <span class="n">Feb</span>  <span class="m">4</span> <span class="m">12</span><span class="o">:</span><span class="m">19</span> <span class="n">s4vitar</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="m">1</span> <span class="n">flippermen</span> <span class="n">flippermen</span> <span class="m">1156</span> <span class="n">Feb</span>  <span class="m">4</span> <span class="m">12</span><span class="o">:</span><span class="m">19</span> <span class="n">flippermen</span>
 </code></pre></div></div>
 
 <p>Ya directamente se gestiona desde el script la sesión, pudiendo así ver los outputs de los comandos que especifiquemos desde <code class="language-plaintext highlighter-rouge">input</code>.</p>
 
 <p>El procedimiento ahora para obtener una TTY y proseguir naturalmente sería el mismo que os mostré anteriormente:</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">┌─</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="err">~</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="n">example</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span><span class="n">python3</span> <span class="n">ttyOverHTTP</span><span class="o">.</span><span class="n">py</span> 
 <span class="o">&gt;</span> <span class="n">whoami</span>                  
 <span class="n">www</span><span class="o">-</span><span class="n">data</span>
 <span class="o">&gt;</span> <span class="n">script</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">-</span><span class="n">c</span> <span class="n">bash</span>
 <span class="n">Script</span> <span class="n">started</span><span class="p">,</span> <span class="n">file</span> <span class="n">is</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
 <span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="n">parrot</span><span class="o">:/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="err">$</span>
-<span class="o">&gt;</span> <span class="n">su</span> <span class="n">s4vitar</span>
-<span class="n">su</span> <span class="n">s4vitar</span>
+<span class="o">&gt;</span> <span class="n">su</span> <span class="n">flippermen</span>
+<span class="n">su</span> <span class="n">flippermen</span>
 <span class="n">Password</span><span class="o">:</span>
 <span class="o">&gt;</span> <span class="o">*************</span> <span class="err">#</span> <span class="n">Aquí</span> <span class="n">va</span> <span class="n">vuestra</span> <span class="n">contraseña</span>
 
 <span class="err">░▒▓</span> <span class="err"></span> <span class="err"></span> <span class="err"></span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">w</span><span class="o">/</span><span class="n">html</span> <span class="err"></span> <span class="err">✔</span> <span class="err">▓▒░</span>                                                  
 <span class="o">&gt;</span> <span class="n">bash</span>
 <span class="n">bash</span>
-<span class="err">┌──</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="p">]</span>
+<span class="err">┌──</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 <span class="o">&gt;</span> <span class="n">whoami</span>
 <span class="n">whoami</span>
-<span class="n">s4vitar</span>
-<span class="err">┌──</span><span class="p">[</span><span class="n">s4vitar</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="p">]</span>
+<span class="n">flippermen</span>
+<span class="err">┌──</span><span class="p">[</span><span class="n">flippermen</span><span class="err">@</span><span class="n">parrot</span><span class="p">]</span><span class="err">─</span><span class="p">[</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="p">]</span>
 <span class="err">└──╼</span> <span class="err">$</span>
 <span class="o">&gt;</span> <span class="n">sudo</span> <span class="n">su</span>
 <span class="n">sudo</span> <span class="n">su</span>
-<span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">password</span> <span class="k">for</span> <span class="n">s4vitar</span><span class="o">:</span>
+<span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">password</span> <span class="k">for</span> <span class="n">flippermen</span><span class="o">:</span>
 <span class="o">&gt;</span> <span class="o">***********</span> <span class="err">#</span> <span class="n">Aquí</span> <span class="n">va</span> <span class="n">vuestra</span> <span class="n">contraseña</span>
 
 <span class="err">░▒▓</span> <span class="err"></span> <span class="err"></span> <span class="err"></span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">w</span><span class="o">/</span><span class="n">html</span> <span class="err"></span> <span class="err">✔</span> <span class="err"></span> <span class="err"></span> <span class="err">▓▒░</span>                                                
@@ -801,7 +801,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 S4vitar</div>
+<div class="page__footer-copyright">&copy; 2020 flippermen</div>
 
       </footer>
     </div>

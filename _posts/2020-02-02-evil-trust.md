@@ -19,7 +19,7 @@ tags:
 <img src="/assets/images/evil-trust/evil.png" width="200">
 </p>
 
-Recientemente estuve en la **h-c0n** presentando la herramienta [evilTrust](https://github.com/s4vitar/evilTrust). Antes que nada quiero agradecer a los organizadores del evento por invitarme y a todos los presentes por la gran acogida, lo pasamos entre todos bastante bien.
+Recientemente estuve en la **h-c0n** presentando la herramienta [evilTrust](https://github.com/flippermen/evilTrust). Antes que nada quiero agradecer a los organizadores del evento por invitarme y a todos los presentes por la gran acogida, lo pasamos entre todos bastante bien.
 
 <div class="row">
   <div class="columns">
@@ -64,7 +64,7 @@ La herramienta está desarrollada en **Bash**, y es capaz de operar en 2 modos e
 ╱╱╱╱╱╱╱╭┳━━━━╮╱╱╱╱╱╱╭╮
 ╱╱╱╱╱╱╱┃┃╭╮╭╮┃╱╱╱╱╱╭╯╰╮
 ╭━━┳╮╭┳┫┣╯┃┃┣┻┳╮╭┳━┻╮╭╯
-┃┃━┫╰╯┣┫┃╱┃┃┃╭┫┃┃┃━━┫┃   (Hecho por s4vitar)
+┃┃━┫╰╯┣┫┃╱┃┃┃╭┫┃┃┃━━┫┃   (Hecho por flippermen)
 ┃┃━╋╮╭┫┃╰╮┃┃┃┃┃╰╯┣━━┃╰╮
 ╰━━╯╰╯╰┻━╯╰╯╰╯╰━━┻━━┻━╯
 

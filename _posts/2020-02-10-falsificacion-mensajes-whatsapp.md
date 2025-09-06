@@ -62,7 +62,7 @@ Posteriormente, establecemos un `Breakpoint` en la sección `var t = e.id;`, hac
 
 Ahora, lo que haremos será lo siguiente. Nos iremos a una conversación cualquiera con uno de nuestros compañeros, seleccionaremos cualquier mensaje que nos haya enviado y le daremos a `Responder` para hacer mención a ese comentario.
 
-Escribiremos como respuesta lo que queramos, yo en este caso he escrito `No sé si conocerás el canal de S4vitar`. Tras enviar el mensaje, veremos que alcanzamos el `Breakpoint` y que el mensaje no llega a enviarse:
+Escribiremos como respuesta lo que queramos, yo en este caso he escrito `No sé si conocerás el canal de flippermen`. Tras enviar el mensaje, veremos que alcanzamos el `Breakpoint` y que el mensaje no llega a enviarse:
 
 <center>
 <img src="/assets/images/whatsapp-fake-messages/step6.jpg">

@@ -29,7 +29,7 @@ La herramienta `fastTCPScan.go` la podéis encontrar más abajo en este mismo ar
 Lo primero una vez contemos con el script `fastTCPScan.go`, será compilarlo. Esto podemos hacerlo de la siguiente forma:
 
 ```go
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #cd /usr/bin/
 ┌─[root@parrot]─[/usr/bin]
 └──╼ #go build -ldflags "-s -w" fastTCPScan.go 
@@ -50,7 +50,7 @@ Packed 1 file.
 Una vez hecho, ya podremos usar la herramienta. Su uso es de lo más sencillo, cabe decir antes que nada que la herramienta cuenta con un panel de ayuda:
 
 ```go
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #fastTCPScan -h
 Usage of fastTCPScan:
   -host string
@@ -68,7 +68,7 @@ Mediante el parámetro `-host` especificamos la dirección ip de la máquina obj
 En este caso a modo de ejemplo, efectuaremos un escaneo contra la dirección ip `192.168.11.12` haciendo uso de 900 hilos (por defecto se escanean todos los puertos [**1-65535**]):
 
 ```go
-┌─[✗]─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[✗]─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #fastTCPScan -host 192.168.11.12 -threads 900
 
 [*] Escaneando host 192.168.11.12 (Puerto: 1-65535)
@@ -86,7 +86,7 @@ Por aquí tenéis el script `fastTCPScan.go`:
 
 ```go
 /*
-	Author: s4vitar - https://youtube.com/watch?v=7L1WNU7fBec
+	Author: flippermen - https://youtube.com/watch?v=7L1WNU7fBec
 */
 
 package main

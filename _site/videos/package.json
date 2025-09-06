@@ -2,7 +2,7 @@
 	"name": "s4",
 	"version": "0.0.4",
 	"description": "htbmachines",
-	"homepage": "https://s4vitar.github.io/videos",
+	"homepage": "https://flippermen.github.io/videos",
 	"main": ".src/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",

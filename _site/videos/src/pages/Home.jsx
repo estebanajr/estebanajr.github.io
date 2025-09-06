@@ -33,7 +33,7 @@ return ( <> <Animate>
 				fontSize: '2.1rem',
 				filter: 'blur(0.6px)',
 			}}>
-				S4vitar Machine's Resolutions
+				flippermen Machine's Resolutions
 		</Heading>
 
 		<Heading as='h2'

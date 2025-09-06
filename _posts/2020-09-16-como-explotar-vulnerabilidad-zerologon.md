@@ -36,7 +36,7 @@ Este recurso, nos permitirá a través del script `zerologon_tester.py`, saber s
 
 Por aquí os dejo el enlace para aquellos/as que lo quieran usar:
 
-* [https://github.com/s4vitar/AD-AutomationLab](https://github.com/s4vitar/AD-AutomationLab)
+* [https://github.com/flippermen/AD-AutomationLab](https://github.com/flippermen/AD-AutomationLab)
 
 
 ## ¿Cómo se explota la vulnerabilidad Zerologon?
@@ -66,15 +66,15 @@ Esta utilidad cuenta con un script de nombre `cve-2020-1472-exploit.py`, el cual
 Antes de explotar la vulnerabilidad, para evitar problemas con Impacket, recomiendo tirar de `virtualenv` para tras su instalación ejecutar posteriormente la herramienta. Sería seguir básicamente los siguientes pasos:
 
 ```bash
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #virtualenv zerologon
 created virtual environment CPython3.8.2.final.0-64 in 178ms
-  creator CPython3Posix(dest=/home/s4vitar/Desktop/zerologon, clear=False, global=False)
+  creator CPython3Posix(dest=/home/flippermen/Desktop/zerologon, clear=False, global=False)
   seeder FromAppData(download=False, CacheControl=latest, appdirs=latest, certifi=latest, chardet=latest, colorama=latest, contextlib2=latest, distlib=latest, distro=latest, html5lib=latest, idna=latest, ipaddr=latest, lockfile=latest, msgpack=latest, packaging=latest, pep517=latest, pip=latest, pkg_resources=latest, progress=latest, pyparsing=latest, pytoml=latest, requests=latest, retrying=latest, setuptools=latest, six=latest, urllib3=latest, webencodings=latest, wheel=latest, via=copy, app_data_dir=/root/.local/share/virtualenv/seed-app-data/v1.0.1.debian)
   activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
-┌─[root@parrot]─[/home/s4vitar/Desktop]
+┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #source zerologon/bin/activate
-(zerologon) ┌─[root@parrot]─[/home/s4vitar/Desktop]
+(zerologon) ┌─[root@parrot]─[/home/flippermen/Desktop]
 └──╼ #cd /opt/
 (zerologon) ┌─[root@parrot]─[/opt]
 └──╼ #git clone https://github.com/SecureAuthCorp/impacket

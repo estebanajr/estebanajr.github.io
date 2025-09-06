@@ -11,9 +11,10 @@ date: 2025-05-09
 <img src="/assets/images/about/photo-portada.jpg">
 </p> 
 
-Mi nombre es Esteban Jimenez (aka **flippermen**), actualmente trabajo como pentester independiente en y como creador de script para auditorias y conciencias con el flipper zero.
+Mi nombre es Esteban Jimenez (aka **flippermen**), actualmente trabajo como pentester independiente y ayudante de catedra de universidad de las americas tambien como creador de script para auditorias informaticas con el flipper zero y en dar charlas de concientización con el flipper zero.
 
 Certificaciones Oficiales
+
 Hack The Box Pro Labs
 
 Cybernetics  

@@ -1,6 +1,6 @@
 import * as React from "react";
 import neo from "@imgs/neo.png";
-import s4 from "@logos/s4vitar.svg";
+import s4 from "@logos/flippermen.svg";
 import { 
   Box, Container, Button, Img,
 } from "@chakra-ui/react";
