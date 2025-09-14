@@ -1,22 +1,12 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
 
-# Theme Settings
-#
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-
+# Minimal Mistakes Jekyll Theme Configuration
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme             : "mmistakes/minimal-mistakes@4.15.1"
 minimal_mistakes_skin    : "haxor" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "H4ckNet | Ciberseguridad y Hacking Ético"
+title                    : "flippermen | Ciberseguridad y Hacking Ético"
 title_separator          : "-"
 name                     : "flippermen"
 description              : "Artículos sobre ciberseguridad, CTFs e investigaciones"
@@ -70,7 +60,6 @@ algolia:
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
-# SEO Related
 google_site_verification :
 bing_site_verification   :
 yandex_site_verification :
@@ -102,8 +91,8 @@ analytics:
 # Site Author
 author:
   name             : "flippermen"
-  avatar           : "/assets/images/avatar.png"
-  bio              : "CyberSecurity Analyst at ElevenPaths / OSCP / OSWP / eWPTxv2 / eJPT / eCPPTv2 / CPHE / CHEE"
+  avatar           : "/assets/images/avatar.jpg"
+  bio              : "Ingeniería En Ciberseguridad | Ethical Hacker | Pentester | CTF Player | Elite Hacker |OT Security Expert | AWS Academy Cloud Foundations | Network Defense"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
@@ -118,17 +107,15 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : "flippermen" # (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  linkedin         : "https://www.linkedin.com/in/esteban-jimenez-994868249/" 
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
-  twitter          : "flippermen"
   vine             :
   weibo            :
   xing             :
-  youtube          : "https://youtube.com/c/flippermen"
 
 
 # Reading Files

@@ -112,7 +112,6 @@ Asistente en los siguientes eventos de ciberseguridad:
 - Reloaded 2024  (Ecuador)
 - Latinoamerica Cybersecurity 2025 (Colombia)
 
-Representaciones
+## Representaciones
 
-Latinoamerica Cybersecurity 2025 (Colombia) (representando a Ecuador) 
-como capitan del equipo Ecuador 
+- Latinoamerica Cybersecurity 2025 (Colombia) (representando a  Ecuador)  como capitan del equipo Ecuador 
