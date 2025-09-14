@@ -30,11 +30,11 @@ Seguir creciendo en el ámbito de la ciberseguridad, aportar mi experiencia en p
 - 🥇 Dos veces campeón en Inggenials en la categoría de ciberseguridad
 - Top 1 nacional Ecuador en Hack The Box (flippermen)
 
-Certificaciones Oficiales
+## Certificaciones Oficiales
 
 Hack The Box Pro Labs
 
-Cybernetics  
+## Cybernetics  
 
 📌 ID: HTBCERT-DB8986537F  
 📅 Fecha: 07 Apr 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 40h | 🌐 Online  
@@ -44,7 +44,7 @@ Cybernetics
 <img src="/assets/images/about/Cybernetics.jpg">
 </p> 
 
-APTLabs – Hack The Box  
+## APTLabs – Hack The Box  
 
 📌 ID: HTBCERT-2F1382404F  
 📅 Fecha: 08 Mar 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 40h | 🌐 Online  
@@ -55,7 +55,7 @@ APTLabs – Hack The Box
 </p> 
 
 
-Zephyr – Hack The Box  
+## Zephyr – Hack The Box  
 
 📌 ID: HTBCERT-36F9A2B84C  
 📅 Fecha: 28 Mar 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 40h | 🌐 Online  
@@ -66,7 +66,7 @@ Zephyr – Hack The Box
 </p> 
 
 
-Dante – Hack The Box  
+## Dante – Hack The Box  
 
 📌 ID: HTBCERT-2044AA5741  
 📅 Fecha: 12 Mar 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 40h | 🌐 Online  
@@ -76,7 +76,7 @@ Dante – Hack The Box
 <img src="/assets/images/about/dante.jpg">
 </p> 
 
-RastaLabs – Hack The Box  
+## RastaLabs – Hack The Box  
 
 📌 ID: HTBCERT-7080AA8EC7  
 📅 Fecha: 29 Mar 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 40h | 🌐 Online  
@@ -86,7 +86,7 @@ RastaLabs – Hack The Box
 <img src="/assets/images/about/rastalab.jpg">
 </p> 
 
-Offshore – Hack The Box  
+## Offshore – Hack The Box  
 
 📌 ID: HTBCERT-154F6A397D  
 📅 Fecha: 07 Apr 2025 | 🎓 CPE Credits: 40 | ⏱️ Duración: 48h | 🌐 Online  
@@ -96,18 +96,18 @@ Offshore – Hack The Box
 <img src="/assets/images/about/Offshore.jpg">
 </p> 
 
-🏭 Seguridad OT/ICS – OPSWAT Academy
+## 🏭 Seguridad OT/ICS – OPSWAT Academy
 
 Introduction to CIP | ID: dGGt5HbHsA | Válido hasta: jul. 2026  
 OT Security Expert | ID: u8Ss4x7gnQ | Válido hasta: jul. 2026  
 Schneider PLC Secure Configuration Expert | ID: 8Qh0FB_4ZA | Válido hasta: jul. 2026  
 Siemens PLC Secure Configuration Expert | ID: m1ZYXyP0_w | Válido hasta: jul. 2026
 
-☁️ Cloud & Infra
+## ☁️ Cloud & Infra
 
 AWS Academy Graduate – Cloud Foundations | Expedición: jun. 2025
 
-🛡️ Seguridad de Red – Cisco Networking Academy
+## 🛡️ Seguridad de Red – Cisco Networking Academy
 
 Network Defense | Expedición: may. 2025  
 Introduction to Cybersecurity | Expedición: jul. 2023  
@@ -115,7 +115,7 @@ Networking Essentials | Expedición: jun. 2023
 Introduction to IoT | Expedición: jun. 2023  
 Python Essentials 1 & 2 | Expedición: may. 2024
 
-🧮 Algoritmos y Programación – Udemy
+## 🧮 Algoritmos y Programación – Udemy
 
 Python Data Structures & Algorithms + LeetCode Exercises  
 ID de credencial: UC-aff11223-9005-463f-b387-c371d86d10b8 | Expedición: dic. 2024
