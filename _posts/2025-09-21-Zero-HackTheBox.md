@@ -5,7 +5,7 @@ excerpt: "Zero es una máquina de Hack The Box centrada en el abuso de Apache y 
 date: 2025-09-21
 classes: wide
 header:
-  teaser: /img/zero-cover.png
+  teaser: /assets/images/htb-Zero/box-zero.webp
   teaser_home_page: true
   icon: /assets/images/hackthebox.webp
 categories:
@@ -29,13 +29,13 @@ Zero es una máquina de Hack The Box donde el reto principal es abusar de la con
 
 ## Box Info
 
-| Name | [Zero](https://hackthebox.com/machines/zero) ![Zero](/assets/images/htb-Zero/box-zero.webp) |
-|------|:---:|
+| Name         | [Zero](https://hackthebox.com/machines/zero) ![Zero](/assets/images/htb-Zero/box-zero.webp) |
+|--------------|:---:|
 | Release Date | 12 Aug 2025 |
-| Retire Date | 12 Aug 2025 |
-| OS | Linux ![Linux](/icons/Linux.png) |
-| Base Points | Insane [50] |
-| Creator | [jkr](https://app.hackthebox.com/users/77141) |
+| Retire Date  | 12 Aug 2025 |
+| OS           | Linux ![Linux](/icons/Linux.png) |
+| Base Points  | Insane [50] |
+| Creator      | [jkr](https://app.hackthebox.com/users/77141) |
 
 ## Recon
 
