@@ -13,7 +13,11 @@ date: 2025-05-09
 
 Mi nombre es Esteban Jimenez (aka **flippermen**), apasionado de la ciberseguridad ofensiva con enfoque en Red Team y pentesting. Actualmente trabajo como pentester independiente, ayudante de cátedra en la Universidad de las Américas, creador de scripts para auditorías informáticas con Flipper Zero y en la impartición de charlas de concientización sobre su uso.
 
-Mi dedicación a la seguridad informática me ha impulsado a participar en CTFs y competiciones universitarias, logrando reconocimientos destacados como Top 1 nacional en Ecuador en Hack The Box Lab, reflejo de mi capacidad para resolver desafíos complejos y aplicar técnicas avanzadas de hacking ético.
+Mi dedicación a la seguridad informática me ha impulsado a participar en CTFs y competiciones universitarias, logrando reconocimientos destacados como Top 1 nacional en Ecuador y puesto 71 a nivel mundial en Hack The Box Lab, reflejo de mi capacidad para resolver desafíos complejos y aplicar técnicas avanzadas de hacking ético.
+
+<p align="center">
+<img src="/assets/images/about/perfil.jpg">
+</p> 
 
 💻 **Habilidades técnicas:**
 - Análisis de vulnerabilidades y explotación
@@ -28,8 +32,11 @@ Seguir creciendo en el ámbito de la ciberseguridad, aportar mi experiencia en p
 
 🏅 **Logros:**
 - 🥇 Dos veces campeón en Inggenials en la categoría de ciberseguridad
-- Top 1 nacional Ecuador en Hack The Box (flippermen)
+- Top 1 nacional Ecuador y puesto 71 mundial en Hack The Box (flippermen) [HackTheBox](https://app.hackthebox.com/profile/overview)
 
+<p align="center">
+<img src="/assets/images/about/ranknacional.jpg">
+</p> 
 ## Certificaciones Oficiales
 
 Hack The Box Pro Labs
@@ -126,7 +133,7 @@ ID de credencial: UC-aff11223-9005-463f-b387-c371d86d10b8 | Expedición: dic. 20
 - CyberSecurity Analyst en ElevenPaths / Penetration Tester / Red Team
 - Formador en Seguridad Informática (Redes inalámbricas, Pentesting y Exploiting)
 - Arquitecto de CTFs en varios eventos de ciberseguridad (Hackron, Cybercamp, CyberEx, Q4 - HackTheBox Latino, ...)
-- Competidor de CTFs y hack thebox, logrando posicionar a de primer lugar nacional en ecuador y el número 71 a nivel mundial [HackTheBox](https://hackthebox.eu)
+- Competidor de CTFs y Hack The Box, logrando posicionar a primer lugar nacional en Ecuador y el número 71 a nivel mundial [HackTheBox](https://app.hackthebox.com/rankings/country/EC)
 - Colaborador de HackTheBox en la resolución y aporte de writeups de máquinas retiradas
 
 # Herramientas
