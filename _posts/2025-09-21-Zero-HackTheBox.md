@@ -22,14 +22,14 @@ tags:
 ---
 
 <p align="center">
-  <img src="/img/zero-cover.png" alt="Zero" style="height:150px;">
+  <img src="/assets/images/htb-Zero/box-zero.webp" alt="Zero" style="height:150px;">
 </p>
 
 Zero es una máquina de Hack The Box donde el reto principal es abusar de la configuración de Apache en un entorno de hosting compartido. El objetivo es obtener acceso root explotando la gestión de procesos y la configuración personalizada del servidor web.
 
 ## Box Info
 
-| Name | [Zero](https://hackthebox.com/machines/zero) ![Zero](/icons/box-zero.png) |
+| Name | [Zero](https://hackthebox.com/machines/zero) ![Zero](/assets/images/htb-Zero/box-zero.webp) |
 |------|:---:|
 | Release Date | 12 Aug 2025 |
 | Retire Date | 12 Aug 2025 |
